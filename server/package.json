@@ -1,0 +1,26 @@
+{
+  "name": "server-if",
+  "version": "1.0.0",
+  "description": "server for if ecosystem",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mr-loop-1/impact-plugins-eco.git"
+  },
+  "author": "Abdul Samad",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/mr-loop-1/impact-plugins-eco/issues"
+  },
+  "homepage": "https://github.com/mr-loop-1/impact-plugins-eco#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.3"
+  }
+}
