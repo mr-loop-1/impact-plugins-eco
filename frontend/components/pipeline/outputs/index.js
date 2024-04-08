@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/popover";
 import AddOutput from "./add";
 import clsx from "clsx";
+import { OutputError } from "@/components/messages";
 
 export default function OutputBox({
     implicitOutputParams,
@@ -69,7 +70,7 @@ export default function OutputBox({
                 <></>
             )}
             <ul className="bg-stone-100 py-1 px-1">
-                {explicitOutputParams.map((input) => {
+                {explicitOutputParams.map((input, idx) => {
                     return (
                         <li>
                             <Popover>
@@ -93,6 +94,18 @@ export default function OutputBox({
                             >
                                 delete
                             </span>
+                            {errors.find(
+                                (error) => error.targetOutputIndex == idx
+                            ) && (
+                                <div className="mt-1 mb-3">
+                                    <OutputError
+                                        error={errors.find(
+                                            (error) =>
+                                                error.targetOutputIndex == idx
+                                        )}
+                                    />
+                                </div>
+                            )}
                         </li>
                     );
                 })}

@@ -25,7 +25,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import AddPlugin from "./add";
-import { PluginParamError } from "@/components/messages";
+import { PluginGenError, PluginParamError } from "@/components/messages";
 import clsx from "clsx";
 import Image from "next/image";
 
@@ -172,6 +172,9 @@ export default function PluginBox({
                         return true;
                     })}
                 />
+            </div>
+            <div className="mt-5">
+                <PluginGenError errors={errors} />
             </div>
         </Card>
     );

@@ -14,6 +14,7 @@ export const compute = (
         inputErrors: [],
         pluginErrors: [],
         outputErrors: [],
+        pluginGenErrors: [],
     };
 
     const errorId = checkPluginInlet(
@@ -116,6 +117,7 @@ const checkPluginOutlet = (
             errors.outputErrors.push({
                 errorId: errorId,
                 type: 3,
+                targetOutputParam: explicitOutputParam,
                 targetOutputIndex: idx,
                 targetPlugin: existsPlugin,
             });
@@ -131,6 +133,16 @@ const checkPluginOutlet = (
                 }
                 return false;
             });
+
+            if (!allMatchPlugins.length) {
+                errors.outputErrors.push({
+                    errorId: errorId,
+                    type: 6,
+                    targetOutputIndex: idx,
+                    targetOutputParam: explicitOutputParam,
+                });
+                return;
+            }
 
             const freqCount = new Array(allMatchPlugins.length);
 
@@ -156,11 +168,10 @@ const checkPluginOutlet = (
             freqCount.sort(
                 (a, b) => a.missingInputs.length - b.missingInputs.length
             );
-
             const matchedPlugin = allMatchPlugins[freqCount[0].index];
 
             if (freqCount[0].missingInputs.length) {
-                //? that means some inputs are also missing
+                //? plugin missing, that means some inputs are also missing
                 errors.outputErrors.push({
                     errorId: errorId,
                     type: 4,
@@ -168,7 +179,7 @@ const checkPluginOutlet = (
                     requiredPlugin: matchedPlugin,
                     requiredInputs: freqCount[0].missingInputs,
                 });
-                errors.pluginErrors.push({
+                errors.pluginGenErrors.push({
                     errorId: errorId,
                     type: 4,
                     targetOutputParam: explicitOutputParam,
@@ -180,7 +191,7 @@ const checkPluginOutlet = (
                     type: 4,
                     targetOutputParam: explicitOutputParam,
                     requiredPlugin: matchedPlugin,
-                    requiredInputs: freqCount[0].missingInputs,
+                    requiredInputParams: freqCount[0].missingInputs,
                 });
                 errorId++;
             } else {
@@ -191,9 +202,9 @@ const checkPluginOutlet = (
                     targetOutputIndex: idx,
                     requiredPlugin: matchedPlugin,
                 });
-                errors.pluginErrors.push({
+                errors.pluginGenErrors.push({
                     errorId: errorId,
-                    type: 5,
+                    type: 4,
                     targetOutputParam: explicitOutputParam,
                     requiredPlugin: matchedPlugin,
                 });
@@ -201,5 +212,6 @@ const checkPluginOutlet = (
             }
         }
     });
+
     return errors;
 };

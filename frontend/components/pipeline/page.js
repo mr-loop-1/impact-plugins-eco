@@ -23,6 +23,7 @@ export default function Pipeline({ allParams, allPlugins }) {
     const [errors, changeErrors] = useState({
         inputErrors: [],
         pluginErrors: [],
+        pluginGenErrors: [],
         outputErrors: [],
     });
     useEffect(() => {
@@ -31,6 +32,7 @@ export default function Pipeline({ allParams, allPlugins }) {
             inputErrors: [],
             pluginErrors: [],
             outputErrors: [],
+            pluginGenErrors: [],
         }));
         changeImplicitOutputParams((impl) => [
             ...getImplicitOutputs(userInputs, userPlugins, allParams),
@@ -40,7 +42,8 @@ export default function Pipeline({ allParams, allPlugins }) {
                 userInputs,
                 userPlugins,
                 explicitOutputParams,
-                allParams
+                allParams,
+                allPlugins
             ),
         }));
         /**
