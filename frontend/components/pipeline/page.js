@@ -36,7 +36,12 @@ export default function Pipeline({ allParams, allPlugins }) {
             ...getImplicitOutputs(userInputs, userPlugins, allParams),
         ]);
         changeErrors((err) => ({
-            ...compute(userInputs, userPlugins, explicitOutputParams),
+            ...compute(
+                userInputs,
+                userPlugins,
+                explicitOutputParams,
+                allParams
+            ),
         }));
         /**
          * get errors again from the algo and set here

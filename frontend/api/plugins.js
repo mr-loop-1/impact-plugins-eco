@@ -31,7 +31,12 @@ export const getPlugins = () => {
             name: "hello-o",
             description: "an amount of carbon emitted into the atmosphere",
             domain: "standard",
-            inputParams: [{ id: 1, name: "carbon" }],
+            inputParams: [
+                {
+                    id: 2,
+                    name: "cpu/number-cores",
+                },
+            ],
             outputParams: [
                 {
                     id: 6,

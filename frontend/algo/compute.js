@@ -63,7 +63,7 @@ const checkPluginInlet = (
                 newInputParams.add(pluginOutputParam.id);
             });
 
-            availableInputParams = [...outputs].map((id) =>
+            availableInputParams = [...newInputParams].map((id) =>
                 allParams.find((param) => param.id == id)
             );
         }
