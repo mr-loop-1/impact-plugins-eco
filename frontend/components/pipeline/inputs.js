@@ -43,11 +43,7 @@ export default function AddInput({ changeInputs }) {
                     aria-expanded={open}
                     className="w-[200px] justify-between"
                 >
-                    {value
-                        ? frameworks.find(
-                              (framework) => framework.name === value
-                          )?.name
-                        : "Select framework..."}
+                    Select framework...
                     <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
             </PopoverTrigger>

@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { useState } from "react";
-import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
+import { CaretSortIcon, CheckIcon, Cross2Icon } from "@radix-ui/react-icons";
 
 import {
     Card,
@@ -41,6 +41,13 @@ export default function InputBox({ inputs, changeInputs }) {
                                     Place content for the popover here.
                                 </PopoverContent>
                             </Popover>
+                            <Cross2Icon
+                                onClick={() => {
+                                    changeInputs((inp) =>
+                                        inp.filter((i) => i != input)
+                                    );
+                                }}
+                            />
                         </li>
                     );
                 })}
