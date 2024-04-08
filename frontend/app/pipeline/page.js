@@ -41,13 +41,10 @@ export default function Home() {
                 <OutputBox
                     implicitOutputs={implicitOutputs}
                     explicitOutputs={explicitOutputs.filter((exp) => {
-                        if (
-                            implicitOutputs.find((impl) => impl.id == exp.id) !=
-                            1
-                        ) {
-                            return true;
+                        if (implicitOutputs.find((impl) => impl.id == exp.id)) {
+                            return false;
                         }
-                        return false;
+                        return true;
                     })}
                     changeExplicitOutputs={changeExplicitOutputs}
                 />

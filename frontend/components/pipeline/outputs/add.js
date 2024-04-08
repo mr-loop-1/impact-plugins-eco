@@ -32,6 +32,7 @@ import { getPlugins } from "@/api/plugins";
 let frameworks = getParams();
 
 export default function AddOutput({ changeExplicitOutputs, currentOutputs }) {
+    console.log("🚀 ~ AddOutput ~ currentOutputs:", currentOutputs);
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
 
@@ -62,34 +63,45 @@ export default function AddOutput({ changeExplicitOutputs, currentOutputs }) {
                     <CommandEmpty>No framework found.</CommandEmpty>
                     <CommandGroup>
                         <CommandList>
-                            {frameworks.map((framework) => (
-                                <CommandItem
-                                    key={framework.id}
-                                    value={framework.name}
-                                    onSelect={(currentValue) => {
-                                        setValue(
-                                            currentValue === value
-                                                ? ""
-                                                : currentValue
-                                        );
-                                        changeExplicitOutputs((inp) => [
-                                            ...inp,
-                                            framework,
-                                        ]);
-                                        setOpen(false);
-                                    }}
-                                >
-                                    {framework.name}
-                                    <CheckIcon
-                                        className={cn(
-                                            "ml-auto h-4 w-4",
-                                            value === framework.name
-                                                ? "opacity-100"
-                                                : "opacity-0"
-                                        )}
-                                    />
-                                </CommandItem>
-                            ))}
+                            {frameworks
+                                .filter((fr) => {
+                                    console.log("🚀 ~ .filter ~ fr:", fr);
+                                    if (
+                                        currentOutputs.find(
+                                            (cr) => cr.id == fr.id
+                                        )
+                                    )
+                                        return false;
+                                    return true;
+                                })
+                                .map((framework) => (
+                                    <CommandItem
+                                        key={framework.id}
+                                        value={framework.name}
+                                        onSelect={(currentValue) => {
+                                            setValue(
+                                                currentValue === value
+                                                    ? ""
+                                                    : currentValue
+                                            );
+                                            changeExplicitOutputs((inp) => [
+                                                ...inp,
+                                                framework,
+                                            ]);
+                                            setOpen(false);
+                                        }}
+                                    >
+                                        {framework.name}
+                                        <CheckIcon
+                                            className={cn(
+                                                "ml-auto h-4 w-4",
+                                                value === framework.name
+                                                    ? "opacity-100"
+                                                    : "opacity-0"
+                                            )}
+                                        />
+                                    </CommandItem>
+                                ))}
                         </CommandList>
                     </CommandGroup>
                 </Command>
