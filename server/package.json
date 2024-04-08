@@ -11,7 +11,7 @@
     "url": "git+https://github.com/mr-loop-1/impact-plugins-eco.git"
   },
   "author": "Abdul Samad",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mr-loop-1/impact-plugins-eco/issues"
   },

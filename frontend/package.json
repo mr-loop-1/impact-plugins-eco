@@ -8,6 +8,13 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mr-loop-1/impact-plugins-eco.git"
+  },
+  "author": "Abdul Samad",
+  "license": "MIT",
+  "homepage": "https://github.com/mr-loop-1/impact-plugins-eco#readme",
   "dependencies": {
     "react": "^18",
     "react-dom": "^18",
