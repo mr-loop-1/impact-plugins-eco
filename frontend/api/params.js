@@ -1,4 +1,4 @@
-export const getParams = () => {
+export const getParams = async () => {
     return [
         {
             id: 1,
