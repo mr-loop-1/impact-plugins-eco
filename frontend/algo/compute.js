@@ -2,7 +2,8 @@ export const compute = (
     availableInputParams,
     appliedPlugins,
     explicitOutputParams,
-    allParams
+    allParams,
+    allPlugins
 ) => {
     /**
      * ? there are 2 types of errors
@@ -22,10 +23,12 @@ export const compute = (
         allParams
     );
     checkPluginOutlet(
+        availableInputParams,
         appliedPlugins,
         explicitOutputParams,
         errorId + 1,
-        errors
+        errors,
+        allPlugins
     );
 
     return errors;
@@ -88,11 +91,115 @@ const checkPluginInlet = (
 };
 
 const checkPluginOutlet = (
+    availableInputParams,
     appliedPlugins,
     explicitOutputParams,
     errorId,
-    errors
+    errors,
+    allPlugins
 ) => {
     // const errors = [];
+    const requiredPlugins = [];
+    explicitOutputParams.forEach((explicitOutputParam, idx) => {
+        const existsPlugin = appliedPlugins.find((appliedPlugin) => {
+            if (
+                appliedPlugin.outputParams.find((outputParam) => {
+                    return outputParam.id == explicitOutputParam.id;
+                })
+            ) {
+                return true;
+            }
+            return false;
+        });
+        if (existsPlugin) {
+            //? then there is some input error only
+            errors.outputErrors.push({
+                errorId: errorId,
+                type: 3,
+                targetOutputIndex: idx,
+                targetPlugin: existsPlugin,
+            });
+            errorId++;
+        } else {
+            const allMatchPlugins = allPlugins.filter((plugin) => {
+                if (
+                    plugin.outputParams.find(
+                        (param) => param.id == explicitOutputParam.id
+                    )
+                ) {
+                    return true;
+                }
+                return false;
+            });
+
+            const freqCount = new Array(allMatchPlugins.length);
+
+            allMatchPlugins.forEach((matchPlugin, index) => {
+                freqCount[index] = {
+                    missingInputs: matchPlugin.inputParams.filter(
+                        (inputParam) => {
+                            if (
+                                availableInputParams.find(
+                                    (availableInputParam) =>
+                                        availableInputParam.id == inputParam.id
+                                )
+                            ) {
+                                return false;
+                            }
+                            return true;
+                        }
+                    ),
+                    index: index,
+                };
+            });
+
+            freqCount.sort(
+                (a, b) => a.missingInputs.length - b.missingInputs.length
+            );
+
+            const matchedPlugin = allMatchPlugins[freqCount[0].index];
+
+            if (freqCount[0].missingInputs.length) {
+                //? that means some inputs are also missing
+                errors.outputErrors.push({
+                    errorId: errorId,
+                    type: 4,
+                    targetOutputIndex: idx,
+                    requiredPlugin: matchedPlugin,
+                    requiredInputs: freqCount[0].missingInputs,
+                });
+                errors.pluginErrors.push({
+                    errorId: errorId,
+                    type: 4,
+                    targetOutputParam: explicitOutputParam,
+                    requiredPlugin: matchedPlugin,
+                    requiredInputs: freqCount[0].missingInputs,
+                });
+                errors.inputErrors.push({
+                    errorId: errorId,
+                    type: 4,
+                    targetOutputParam: explicitOutputParam,
+                    requiredPlugin: matchedPlugin,
+                    requiredInputs: freqCount[0].missingInputs,
+                });
+                errorId++;
+            } else {
+                //? that means all inputs are present
+                errors.outputErrors.push({
+                    errorId: errorId,
+                    type: 5,
+                    targetOutputIndex: idx,
+                    requiredPlugin: matchedPlugin,
+                });
+                errors.pluginErrors.push({
+                    errorId: errorId,
+                    type: 5,
+                    targetOutputParam: explicitOutputParam,
+                    requiredPlugin: matchedPlugin,
+                });
+                errorId++;
+            }
+        }
+    });
     return errors;
 };
