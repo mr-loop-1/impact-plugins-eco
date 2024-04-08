@@ -1,6 +1,6 @@
 export const errorTypes = {
     1: "InputAdd",
-    2: "PluginAdd",
-    3: "PluginRemove",
+    2: "PluginRemove",
+    3: "PluginAdd",
     4: "OutputRemove",
 };

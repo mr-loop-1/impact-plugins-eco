@@ -1,4 +1,4 @@
-export default getImplicitOutputs = (availableInputParams, appliedPlugins) => {
+export const getImplicitOutputs = (availableInputParams, appliedPlugins) => {
     const outputs = new Set();
 
     for (const plugin of appliedPlugins) {
@@ -19,5 +19,5 @@ export default getImplicitOutputs = (availableInputParams, appliedPlugins) => {
         }
     }
 
-    return outputs;
+    return [...outputs];
 };

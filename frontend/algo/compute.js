@@ -10,7 +10,13 @@ export default compute = (
      */
 
     const upperErrors = checkPluginInlet(availableInputParams, appliedPlugins);
-    const lowerErrors = checkPluginOutlet(appliedPlugins, explicitOutputParams);
+    const lowerErrors = checkPluginOutlet(
+        appliedPlugins,
+        explicitOutputParams,
+        upperErrors[upperErrors.length - 1].errorId + 1
+    );
+
+    return [...upperErrors, ...lowerErrors];
 };
 
 const checkPluginInlet = (availableInputParams, appliedPlugins) => {
@@ -50,4 +56,7 @@ const checkPluginInlet = (availableInputParams, appliedPlugins) => {
     });
 };
 
-const checkPluginOutlet = (appliedPlugins, explicitOutputParams) => {};
+const checkPluginOutlet = (appliedPlugins, explicitOutputParams, errorId) => {
+    const errors = [];
+    return errors;
+};
