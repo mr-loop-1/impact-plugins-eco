@@ -18,6 +18,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import { InputParamError } from "@/components/messages";
+import clsx from "clsx";
 
 export default function InputBox({
     userInputs,
@@ -26,39 +27,48 @@ export default function InputBox({
     errors,
 }) {
     return (
-        <Card className="px-10 py-10">
-            <span className="text-bold">Input Parameters</span>
-            <ul>
-                {userInputs.map((userInput) => {
-                    return (
-                        <li>
-                            <Popover>
-                                <PopoverTrigger className="hover:bg-gray-400">
-                                    {userInput.name}
-                                </PopoverTrigger>
-                                <PopoverContent>
-                                    {userInput.description}
-                                </PopoverContent>
-                            </Popover>
-                            <Cross2Icon
-                                className="inline"
-                                onClick={() => {
-                                    changeUserInputs((curentInputs) =>
-                                        curentInputs.filter(
-                                            (inputItem) =>
-                                                inputItem.id != userInput.id
-                                        )
-                                    );
-                                }}
-                            />
-                        </li>
-                    );
-                })}
+        <Card
+            className={clsx(
+                "p-4 w-full shadow-lime-300 shadow-sm",
+                errors.length && "shadow-amber-300 shadow-sm"
+            )}
+        >
+            <span className="font-bold tracking-tighter">Input Parameters</span>
+            <ul className="mt-3">
+                {userInputs.length ? (
+                    userInputs.map((userInput) => {
+                        return (
+                            <li key={userInput.id}>
+                                <Popover>
+                                    <PopoverTrigger className="hover:bg-gray-50">
+                                        - {userInput.name}
+                                    </PopoverTrigger>
+                                    <PopoverContent>
+                                        {userInput.description}
+                                    </PopoverContent>
+                                </Popover>
+                                <span
+                                    className="ml-3 inline text-sm font-medium text-red-600 cursor-pointer underline"
+                                    onClick={() => {
+                                        changeUserInputs((curentInputs) =>
+                                            curentInputs.filter(
+                                                (inputItem) =>
+                                                    inputItem.id != userInput.id
+                                            )
+                                        );
+                                    }}
+                                >
+                                    delete
+                                </span>
+                            </li>
+                        );
+                    })
+                ) : (
+                    <span className="">no parameters selected</span>
+                )}
             </ul>
-            <div>
-                <InputParamError errors={errors} />
-            </div>
-            <div className="mt-10 mb-10">
+
+            <div className="mt-5">
                 <AddInputParam
                     changeUserInputs={changeUserInputs}
                     leftInputs={allParams.filter((inputParam) => {
@@ -71,6 +81,9 @@ export default function InputBox({
                         return true;
                     })}
                 />
+            </div>
+            <div className="mt-5">
+                <InputParamError errors={errors} />
             </div>
         </Card>
     );

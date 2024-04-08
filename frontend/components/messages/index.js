@@ -1,15 +1,19 @@
 export const InputParamError = ({ errors }) => {
     return (
-        <ul>
+        <ul className="bg-yellow-200 w-fit px-2 font-sans text-sm   ">
             {errors.map((error) => {
                 return (
                     <li>
-                        {`Error ${error.errorId}: plugin ${
-                            error.targetPlugin.name
-                        } requires the follwing input params - 
-            ${error.requiredInputParams.map(
-                (inputParams) => ` ${inputParams.name} `
-            )}`}
+                        error {error.errorId}: plugin{" "}
+                        <span className="italic font-medium">
+                            {error.targetPlugin.name}
+                        </span>{" "}
+                        requires the follwing input params -
+                        <span className="italic font-medium">
+                            {error.requiredInputParams.map(
+                                (inputParams) => ` ${inputParams.name},`
+                            )}
+                        </span>
                     </li>
                 );
             })}

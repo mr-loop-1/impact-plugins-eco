@@ -22,7 +22,7 @@ export default function Home() {
     allPlugins = getPlugins();
 
     return (
-        <>
+        <div className="m-5 font-sans">
             <PipelineHeader />
             <PipelineHelper allParams={allParams} allPlugins={allPlugins} />
             {/* {isLoading ? (
@@ -30,6 +30,6 @@ export default function Home() {
             ) : (
                 <LoadingBlocker />
             )} */}
-        </>
+        </div>
     );
 }

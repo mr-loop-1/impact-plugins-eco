@@ -25,7 +25,6 @@ export default function Pipeline({ allParams, allPlugins }) {
         pluginErrors: [],
         outputErrors: [],
     });
-    console.log("🚀 ~ Pipeline ~ errors:", errors);
     useEffect(() => {
         setIsLoading(() => true);
         changeErrors(() => ({
@@ -46,8 +45,8 @@ export default function Pipeline({ allParams, allPlugins }) {
     }, [userInputs, userPlugins, explicitOutputParams]);
 
     return (
-        <main className="">
-            <div className="w-[60%] mx-auto">
+        <main className="w-full lg:w-[60%] mt-10">
+            <div className="">
                 <InputBox
                     userInputs={userInputs}
                     changeUserInputs={changeUserInputs}
