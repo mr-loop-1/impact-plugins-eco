@@ -14,6 +14,9 @@ module.exports = {
             password: process.env.DB_PASSWORD,
             database: process.env.DB_NAME,
         },
+        seeds: {
+            directory: path.join(__dirname, "database/seeds"),
+        },
         migrations: {
             directory: path.join(__dirname, "database/migrations"),
             tableName: "knex_migrations",
@@ -32,6 +35,9 @@ module.exports = {
         pool: {
             min: 2,
             max: 10,
+        },
+        seeds: {
+            directory: path.join(__dirname, "database/seeds"),
         },
         migrations: {
             directory: path.join(__dirname, "database/migrations"),

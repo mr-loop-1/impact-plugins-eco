@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/data", dataRouter);
-app.use("/analyse", analysisRouter);
+app.use("/compute", computeRouter);
 
 app.use((req, res) => {
     res.status(201).json("Ping Success");
