@@ -39,7 +39,7 @@ export default function InputBox({ userInputs, changeUserInputs, allParams }) {
                                     changeUserInputs((curentInputs) =>
                                         curentInputs.filter(
                                             (inputItem) =>
-                                                inputItem.id != input.id
+                                                inputItem.id != userInput.id
                                         )
                                     );
                                 }}
@@ -48,7 +48,7 @@ export default function InputBox({ userInputs, changeUserInputs, allParams }) {
                     );
                 })}
             </ul>
-            <div className="mt-10">
+            <div className="mt-10 mb-10">
                 <AddInputParam
                     changeUserInputs={changeUserInputs}
                     leftInputs={allParams.filter((inputParam) => {

@@ -3,15 +3,6 @@ import * as React from "react";
 import { useState } from "react";
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
     Command,
@@ -26,11 +17,8 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
-import { getParams } from "@/api/params";
 
-// const frameworks = getParams();
-
-export default function AddInput({ changeUserInputs, leftInputs }) {
+export default function AddInputParam({ changeUserInputs, leftInputs }) {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
 
@@ -43,7 +31,7 @@ export default function AddInput({ changeUserInputs, leftInputs }) {
                     aria-expanded={open}
                     className="w-[200px] justify-between"
                 >
-                    Select framework...
+                    Add Input Params...
                     <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
             </PopoverTrigger>
@@ -74,14 +62,6 @@ export default function AddInput({ changeUserInputs, leftInputs }) {
                                     }}
                                 >
                                     {framework.name}
-                                    <CheckIcon
-                                        className={cn(
-                                            "ml-auto h-4 w-4",
-                                            value === framework.name
-                                                ? "opacity-100"
-                                                : "opacity-0"
-                                        )}
-                                    />
                                 </CommandItem>
                             ))}
                         </CommandList>

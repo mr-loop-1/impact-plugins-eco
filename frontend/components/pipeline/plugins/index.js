@@ -42,19 +42,26 @@ function swapAdjacent(array, index, flow) {
     return array;
 }
 
-export default function PluginBox({ plugins, changePlugins }) {
+export default function PluginBox({
+    userPlugins,
+    changeUserPlugins,
+    allParams,
+    allPlugins,
+    errors,
+}) {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
 
     return (
         <div>
             <ul>
-                {plugins.map((input, idx) => {
+                {userPlugins.map((input, idx) => {
                     return (
                         <li>
                             <ArrowUpIcon
+                                className="inline"
                                 onClick={() => {
-                                    changePlugins((currentPlugins) => [
+                                    changeUserPlugins((currentPlugins) => [
                                         ...swapAdjacent(
                                             currentPlugins,
                                             idx,
@@ -64,8 +71,9 @@ export default function PluginBox({ plugins, changePlugins }) {
                                 }}
                             />
                             <ArrowDownIcon
+                                className="inline"
                                 onClick={() => {
-                                    changePlugins((currentPlugins) => [
+                                    changeUserPlugins((currentPlugins) => [
                                         ...swapAdjacent(
                                             currentPlugins,
                                             idx,
@@ -83,8 +91,9 @@ export default function PluginBox({ plugins, changePlugins }) {
                                 </PopoverContent>
                             </Popover>
                             <Cross2Icon
+                                className="inline"
                                 onClick={() => {
-                                    changePlugins((curentInputs) =>
+                                    changeUserPlugins((curentInputs) =>
                                         curentInputs.filter(
                                             (inputItem) =>
                                                 inputItem.id != input.id
@@ -96,8 +105,19 @@ export default function PluginBox({ plugins, changePlugins }) {
                     );
                 })}
             </ul>
-            <div className="mt-10">
-                <AddPlugin changePlugins={changePlugins} />
+            <div className="mt-10  mb-10">
+                <AddPlugin
+                    changeUserPlugins={changeUserPlugins}
+                    leftPlugins={allPlugins.filter((plugin) => {
+                        if (
+                            userPlugins.find((userPlugin) => {
+                                return userPlugin.id == plugin.id;
+                            })
+                        )
+                            return false;
+                        return true;
+                    })}
+                />
             </div>
         </div>
     );

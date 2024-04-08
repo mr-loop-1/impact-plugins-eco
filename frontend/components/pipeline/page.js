@@ -41,10 +41,14 @@ export default function Pipeline({ allParams, allPlugins }) {
                     changeUserInputs={changeUserInputs}
                     allParams={allParams}
                     allPlugins={allPlugins}
+                    errors={errors}
                 />
                 <PluginBox
-                    plugins={userPlugins}
-                    changePlugins={changeUserPlugins}
+                    userPlugins={userPlugins}
+                    changeUserPlugins={changeUserPlugins}
+                    allParams={allParams}
+                    allPlugins={allPlugins}
+                    errors={errors}
                 />
                 <OutputBox
                     implicitOutputs={implicitOutputs}

@@ -29,9 +29,7 @@ import {
 import { getParams } from "@/api/params";
 import { getPlugins } from "@/api/plugins";
 
-const frameworks = getPlugins();
-
-export default function AddPlugin({ changePlugins }) {
+export default function AddPlugin({ changeUserPlugins, leftPlugins }) {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
 
@@ -57,7 +55,7 @@ export default function AddPlugin({ changePlugins }) {
                     <CommandEmpty>No framework found.</CommandEmpty>
                     <CommandGroup>
                         <CommandList>
-                            {frameworks.map((framework) => (
+                            {leftPlugins.map((framework) => (
                                 <CommandItem
                                     key={framework.id}
                                     value={framework.name}
@@ -67,7 +65,7 @@ export default function AddPlugin({ changePlugins }) {
                                                 ? ""
                                                 : currentValue
                                         );
-                                        changePlugins((inp) => [
+                                        changeUserPlugins((inp) => [
                                             ...inp,
                                             framework,
                                         ]);
@@ -75,14 +73,6 @@ export default function AddPlugin({ changePlugins }) {
                                     }}
                                 >
                                     {framework.name}
-                                    <CheckIcon
-                                        className={cn(
-                                            "ml-auto h-4 w-4",
-                                            value === framework.name
-                                                ? "opacity-100"
-                                                : "opacity-0"
-                                        )}
-                                    />
                                 </CommandItem>
                             ))}
                         </CommandList>
