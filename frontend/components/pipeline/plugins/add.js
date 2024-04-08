@@ -42,7 +42,7 @@ export default function AddPlugin({ changeUserPlugins, leftPlugins }) {
                     aria-expanded={open}
                     className="w-[200px] justify-between"
                 >
-                    Select framework...
+                    Select Plugins...
                     <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
             </PopoverTrigger>

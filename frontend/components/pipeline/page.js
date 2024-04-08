@@ -17,21 +17,30 @@ export default function Pipeline({ allParams, allPlugins }) {
     const [isLoading, setIsLoading] = useState(true);
     const [userInputs, changeUserInputs] = useState([]);
     const [userPlugins, changeUserPlugins] = useState([]);
-    const [implicitOutputs, changeImplicitOutputs] = useState([]);
-    const [explicitOutputs, changeExplicitOutputs] = useState([]);
-    const [errors, changeErrors] = useState([]);
+    const [implicitOutputParams, changeImplicitOutputParams] = useState([]);
+    const [explicitOutputParams, changeExplicitOutputParams] = useState([]);
+    console.log("🚀 ~ Pipeline ~ explicitOutputParams:", explicitOutputParams);
+    const [errors, changeErrors] = useState({
+        inputErrors: [],
+        pluginErrors: [],
+        outputErrors: [],
+    });
 
     useEffect(() => {
         setIsLoading(() => true);
-        changeErrors([]);
-        changeImplicitOutputs((impl) =>
-            getImplicitOutputs(userInputs, userPlugins, explicitOutputs)
+        changeErrors({
+            inputErrors: [],
+            pluginErrors: [],
+            outputErrors: [],
+        });
+        changeImplicitOutputParams((impl) =>
+            getImplicitOutputs(userInputs, userPlugins, explicitOutputParams)
         );
         /**
          * get errors again from the algo and set here
          */
         setIsLoading(() => false);
-    }, [userInputs, userPlugins, explicitOutputs]);
+    }, [userInputs, userPlugins, explicitOutputParams]);
 
     return (
         <main className="">
@@ -41,24 +50,33 @@ export default function Pipeline({ allParams, allPlugins }) {
                     changeUserInputs={changeUserInputs}
                     allParams={allParams}
                     allPlugins={allPlugins}
-                    errors={errors}
+                    errors={errors.inputErrors}
                 />
                 <PluginBox
                     userPlugins={userPlugins}
                     changeUserPlugins={changeUserPlugins}
                     allParams={allParams}
                     allPlugins={allPlugins}
-                    errors={errors}
+                    errors={errors.pluginErrors}
                 />
                 <OutputBox
-                    implicitOutputs={implicitOutputs}
-                    explicitOutputs={explicitOutputs.filter((exp) => {
-                        if (implicitOutputs.find((impl) => impl.id == exp.id)) {
-                            return false;
+                    implicitOutputParams={implicitOutputParams}
+                    explicitOutputParams={explicitOutputParams.filter(
+                        (explicitOutput) => {
+                            if (
+                                implicitOutputParams.find(
+                                    (implicitOutput) =>
+                                        implicitOutput.id == explicitOutput.id
+                                )
+                            ) {
+                                return false;
+                            }
+                            return true;
                         }
-                        return true;
-                    })}
-                    changeExplicitOutputs={changeExplicitOutputs}
+                    )}
+                    changeExplicitOutputParams={changeExplicitOutputParams}
+                    allParams={allParams}
+                    errors={errors.outputErrors}
                 />
             </Card>
         </main>

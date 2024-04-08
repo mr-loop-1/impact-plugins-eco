@@ -23,14 +23,20 @@ import AddOutput from "./add";
 const frameworks = getParams();
 
 export default function OutputBox({
-    implicitOutputs,
-    explicitOutputs,
-    changeExplicitOutputs,
+    implicitOutputParams,
+    explicitOutputParams,
+    changeExplicitOutputParams,
+    allParams,
+    errors,
 }) {
+    const currentOutputParams = [
+        ...implicitOutputParams,
+        ...explicitOutputParams,
+    ];
     return (
         <div>
             <ul>
-                {implicitOutputs.map((input) => {
+                {implicitOutputParams.map((input) => {
                     return (
                         <li>
                             <Popover>
@@ -46,7 +52,7 @@ export default function OutputBox({
                 })}
                 <hr />
                 <hr />
-                {explicitOutputs.map((input) => {
+                {explicitOutputParams.map((input) => {
                     return (
                         <li>
                             <Popover>
@@ -58,8 +64,9 @@ export default function OutputBox({
                                 </PopoverContent>
                             </Popover>
                             <Cross2Icon
+                                className="inline"
                                 onClick={() => {
-                                    changeExplicitOutputs((curentInputs) =>
+                                    changeExplicitOutputParams((curentInputs) =>
                                         curentInputs.filter(
                                             (inputItem) =>
                                                 inputItem.id != input.id
@@ -73,8 +80,16 @@ export default function OutputBox({
             </ul>
             <div className="mt-10">
                 <AddOutput
-                    changeExplicitOutputs={changeExplicitOutputs}
-                    currentOutputs={[...implicitOutputs, ...explicitOutputs]}
+                    changeExplicitOutputParams={changeExplicitOutputParams}
+                    leftParams={allParams.filter((outputParam) => {
+                        if (
+                            currentOutputParams.find((currentOutputParam) => {
+                                return currentOutputParam.id == outputParam.id;
+                            })
+                        )
+                            return false;
+                        return true;
+                    })}
                 />
             </div>
         </div>
