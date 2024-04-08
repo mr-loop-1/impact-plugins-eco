@@ -19,6 +19,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import AddOutput from "./add";
+import clsx from "clsx";
 
 export default function OutputBox({
     implicitOutputParams,
@@ -32,7 +33,12 @@ export default function OutputBox({
         ...explicitOutputParams,
     ];
     return (
-        <div>
+        <Card
+            className={clsx(
+                "p-4 mt-5 w-full shadow-lime-300 shadow-sm",
+                errors.length && "shadow-amber-300 shadow-sm"
+            )}
+        >
             <ul>
                 {implicitOutputParams.map((input) => {
                     return (
@@ -90,6 +96,6 @@ export default function OutputBox({
                     })}
                 />
             </div>
-        </div>
+        </Card>
     );
 }

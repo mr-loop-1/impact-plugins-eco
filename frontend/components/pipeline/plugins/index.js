@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/popover";
 import AddPlugin from "./add";
 import { PluginParamError } from "@/components/messages";
+import clsx from "clsx";
 
 function swapAdjacent(array, index, flow) {
     if (flow === "back" && index > 0) {
@@ -51,13 +52,24 @@ export default function PluginBox({
     const [value, setValue] = useState("");
 
     return (
-        <div>
-            <ul>
-                {userPlugins.map((input, idx) => {
+        <Card
+            className={clsx(
+                "p-4 mt-5 w-full shadow-lime-300 shadow-sm",
+                errors.length && "shadow-red-600 shadow-sm border-red-300"
+            )}
+        >
+            <span className="font-bold text-xl tracking-tight">
+                pipeline: ordered
+            </span>
+            <ul className="mt-4">
+                {userPlugins.map((input, idx, arr) => {
                     return (
                         <li>
                             <ArrowUpIcon
-                                className="inline"
+                                className={clsx(
+                                    "inline h-5 w-5 cursor-pointer hover:h-7 hover:w-7 mr-3",
+                                    idx == 0 && "hidden"
+                                )}
                                 onClick={() => {
                                     changeUserPlugins((currentPlugins) => [
                                         ...swapAdjacent(
@@ -69,7 +81,10 @@ export default function PluginBox({
                                 }}
                             />
                             <ArrowDownIcon
-                                className="inline"
+                                className={clsx(
+                                    "inline h-5 w-5 cursor-pointer hover:h-7 hover:w-7 mr-3",
+                                    idx == arr.length - 1 && "hidden"
+                                )}
                                 onClick={() => {
                                     changeUserPlugins((currentPlugins) => [
                                         ...swapAdjacent(
@@ -81,15 +96,15 @@ export default function PluginBox({
                                 }}
                             />
                             <Popover>
-                                <PopoverTrigger className="hover:bg-gray-400">
+                                <PopoverTrigger className="hover:bg-gray-50 ">
                                     {input.name}
                                 </PopoverTrigger>
-                                <PopoverContent>
+                                <PopoverContent className="ml-10">
                                     {input.description}
                                 </PopoverContent>
                             </Popover>
-                            <Cross2Icon
-                                className="inline"
+                            <span
+                                className="ml-3 inline text-sm font-medium text-red-600 cursor-pointer underline"
                                 onClick={() => {
                                     changeUserPlugins((curentInputs) =>
                                         curentInputs.filter(
@@ -98,7 +113,9 @@ export default function PluginBox({
                                         )
                                     );
                                 }}
-                            />
+                            >
+                                remove
+                            </span>
                             {errors.find(
                                 (error) => error.targetPluginIndex == idx
                             ) && (
@@ -129,6 +146,6 @@ export default function PluginBox({
                     })}
                 />
             </div>
-        </div>
+        </Card>
     );
 }

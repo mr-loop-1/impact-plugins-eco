@@ -23,19 +23,23 @@ export const InputParamError = ({ errors }) => {
 
 export const PluginParamError = ({ error }) => {
     return (
-        <>
+        <div className="bg-red-600 text-white w-fit px-2 font-sans text-sm">
             {error.type == 2 ? (
                 <span>
-                    {`Error ${error.errorId}: this plugin ${
-                        error.targetPlugin.name
-                    } can be removed if following input params are not available - 
-                    ${error.requiredInputParams.map(
-                        (inputParams) => ` ${inputParams.name} `
-                    )}`}
+                    error {error.errorId}: this plugin{" "}
+                    <span className="italic font-medium">
+                        {error.targetPlugin.name}
+                    </span>{" "}
+                    can be removed if following input params are not available -
+                    <span className="italic font-medium">
+                        {error.requiredInputParams.map(
+                            (inputParams) => ` ${inputParams.name},`
+                        )}
+                    </span>
                 </span>
             ) : (
                 <span></span>
             )}
-        </>
+        </div>
     );
 };

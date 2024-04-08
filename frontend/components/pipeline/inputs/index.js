@@ -33,7 +33,9 @@ export default function InputBox({
                 errors.length && "shadow-amber-300 shadow-sm"
             )}
         >
-            <span className="font-bold tracking-tighter">Input Parameters</span>
+            <span className="font-bold text-xl tracking-tighter">
+                Input Parameters
+            </span>
             <ul className="mt-3">
                 {userInputs.length ? (
                     userInputs.map((userInput) => {
@@ -43,7 +45,7 @@ export default function InputBox({
                                     <PopoverTrigger className="hover:bg-gray-50">
                                         - {userInput.name}
                                     </PopoverTrigger>
-                                    <PopoverContent>
+                                    <PopoverContent className="ml-10">
                                         {userInput.description}
                                     </PopoverContent>
                                 </Popover>
