@@ -27,6 +27,7 @@ import {
 import AddPlugin from "./add";
 import { PluginParamError } from "@/components/messages";
 import clsx from "clsx";
+import Image from "next/image";
 
 function swapAdjacent(array, index, flow) {
     if (flow === "back" && index > 0) {
@@ -62,75 +63,101 @@ export default function PluginBox({
                 pipeline: ordered
             </span>
             <ul className="mt-4 bg-stone-100 py-1 px-1">
-                {userPlugins.map((input, idx, arr) => {
-                    return (
-                        <li>
-                            <ArrowUpIcon
-                                className={clsx(
-                                    "inline h-5 w-5 cursor-pointer hover:h-7 hover:w-7 mr-3",
-                                    idx == 0 && "hidden"
-                                )}
-                                onClick={() => {
-                                    changeUserPlugins((currentPlugins) => [
-                                        ...swapAdjacent(
-                                            currentPlugins,
-                                            idx,
-                                            "back"
-                                        ),
-                                    ]);
-                                }}
-                            />
-                            <ArrowDownIcon
-                                className={clsx(
-                                    "inline h-5 w-5 cursor-pointer hover:h-7 hover:w-7 mr-3",
-                                    idx == arr.length - 1 && "hidden"
-                                )}
-                                onClick={() => {
-                                    changeUserPlugins((currentPlugins) => [
-                                        ...swapAdjacent(
-                                            currentPlugins,
-                                            idx,
-                                            "front"
-                                        ),
-                                    ]);
-                                }}
-                            />
-                            <Popover>
-                                <PopoverTrigger className="hover:bg-gray-50 ">
-                                    {input.name}
-                                </PopoverTrigger>
-                                <PopoverContent className="ml-10">
-                                    {input.description}
-                                </PopoverContent>
-                            </Popover>
-                            <span
-                                className="ml-3 inline text-sm font-medium text-red-600 cursor-pointer underline"
-                                onClick={() => {
-                                    changeUserPlugins((curentInputs) =>
-                                        curentInputs.filter(
-                                            (inputItem) =>
-                                                inputItem.id != input.id
-                                        )
-                                    );
-                                }}
-                            >
-                                remove
-                            </span>
-                            {errors.find(
-                                (error) => error.targetPluginIndex == idx
-                            ) && (
-                                <div className="mt-1 mb-3">
-                                    <PluginParamError
-                                        error={errors.find(
-                                            (error) =>
-                                                error.targetPluginIndex == idx
-                                        )}
+                {userPlugins.length ? (
+                    userPlugins.map((input, idx, arr) => {
+                        return (
+                            <li>
+                                <div className={clsx(idx == 0 && "hidden")}>
+                                    <Image
+                                        src="pip.svg"
+                                        className="mx-auto"
+                                        height={20}
+                                        width={20}
                                     />
                                 </div>
-                            )}
-                        </li>
-                    );
-                })}
+                                <ArrowUpIcon
+                                    className={clsx(
+                                        "inline h-5 w-5 cursor-pointer hover:h-7 hover:w-7 mr-3",
+                                        idx == 0 && "hidden"
+                                    )}
+                                    onClick={() => {
+                                        changeUserPlugins((currentPlugins) => [
+                                            ...swapAdjacent(
+                                                currentPlugins,
+                                                idx,
+                                                "back"
+                                            ),
+                                        ]);
+                                    }}
+                                />
+                                <ArrowDownIcon
+                                    className={clsx(
+                                        "inline h-5 w-5 cursor-pointer hover:h-7 hover:w-7 mr-3",
+                                        idx == arr.length - 1 && "hidden"
+                                    )}
+                                    onClick={() => {
+                                        changeUserPlugins((currentPlugins) => [
+                                            ...swapAdjacent(
+                                                currentPlugins,
+                                                idx,
+                                                "front"
+                                            ),
+                                        ]);
+                                    }}
+                                />
+                                <Popover>
+                                    <PopoverTrigger className="hover:bg-gray-50 ">
+                                        {input.name}
+                                    </PopoverTrigger>
+                                    <PopoverContent className="ml-10">
+                                        {input.description}
+                                    </PopoverContent>
+                                </Popover>
+                                <span
+                                    className={clsx(
+                                        "ml-3 inline text-sm font-bold rounded text-white px-1 ",
+                                        input.domain == "standard" &&
+                                            "bg-lime-600",
+                                        input.domain == "universe" &&
+                                            "bg-orange-600",
+                                        input.domain == "unofficial" &&
+                                            "bg-blue-600"
+                                    )}
+                                >
+                                    {input.domain}
+                                </span>
+                                <span
+                                    className="ml-3 inline text-sm font-medium text-red-600 cursor-pointer underline"
+                                    onClick={() => {
+                                        changeUserPlugins((curentInputs) =>
+                                            curentInputs.filter(
+                                                (inputItem) =>
+                                                    inputItem.id != input.id
+                                            )
+                                        );
+                                    }}
+                                >
+                                    remove
+                                </span>
+                                {errors.find(
+                                    (error) => error.targetPluginIndex == idx
+                                ) && (
+                                    <div className="mt-1 mb-3">
+                                        <PluginParamError
+                                            error={errors.find(
+                                                (error) =>
+                                                    error.targetPluginIndex ==
+                                                    idx
+                                            )}
+                                        />
+                                    </div>
+                                )}
+                            </li>
+                        );
+                    })
+                ) : (
+                    <span className="tracking-tight">no plugins added</span>
+                )}
             </ul>
             <div className="mt-5">
                 <AddPlugin

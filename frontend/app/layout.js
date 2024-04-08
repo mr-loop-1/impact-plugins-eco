@@ -12,6 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
+            <head>
+                <title>if-ecosystem</title>
+            </head>
+            <link rel="icon" href="/favicon.svg" sizes="any" />
             <body className={inter.className}>
                 <Navbar />
                 {children}

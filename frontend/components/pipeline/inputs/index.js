@@ -1,15 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
-import { CaretSortIcon, CheckIcon, Cross2Icon } from "@radix-ui/react-icons";
-
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import AddInputParam from "./add";
 import {
@@ -66,7 +56,9 @@ export default function InputBox({
                         );
                     })
                 ) : (
-                    <span className="">no parameters selected</span>
+                    <span className="tracking-tight">
+                        no parameters selected
+                    </span>
                 )}
             </ul>
 

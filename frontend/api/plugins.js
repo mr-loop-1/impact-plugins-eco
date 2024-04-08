@@ -3,6 +3,7 @@ export const getPlugins = () => {
         {
             id: 1,
             name: "sci-o",
+            domain: "unofficial",
             description: "an amount of carbon emitted into the atmosphere",
             inputParams: [{ id: 1, name: "carbon" }],
             outputParams: [
@@ -16,6 +17,7 @@ export const getPlugins = () => {
             id: 2,
             name: "wattime",
             description: "an amount of carbon emitted into the atmosphere",
+            domain: "universe",
             inputParams: [{ id: 1, name: "carbon" }],
             outputParams: [
                 {
@@ -28,6 +30,7 @@ export const getPlugins = () => {
             id: 3,
             name: "hello-o",
             description: "an amount of carbon emitted into the atmosphere",
+            domain: "standard",
             inputParams: [{ id: 1, name: "carbon" }],
             outputParams: [
                 {

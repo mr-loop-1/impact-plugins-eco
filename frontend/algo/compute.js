@@ -1,7 +1,8 @@
 export const compute = (
     availableInputParams,
     appliedPlugins,
-    explicitOutputParams
+    explicitOutputParams,
+    allParams
 ) => {
     /**
      * ? there are 2 types of errors
@@ -17,7 +18,8 @@ export const compute = (
     const errorId = checkPluginInlet(
         availableInputParams,
         appliedPlugins,
-        errors
+        errors,
+        allParams
     );
     checkPluginOutlet(
         appliedPlugins,
@@ -29,7 +31,12 @@ export const compute = (
     return errors;
 };
 
-const checkPluginInlet = (availableInputParams, appliedPlugins, errors) => {
+const checkPluginInlet = (
+    availableInputParams,
+    appliedPlugins,
+    errors,
+    allParams
+) => {
     // const errors = [];
     let errorId = 1;
     appliedPlugins.forEach((appliedPlugin, pluginIdx) => {
@@ -45,6 +52,20 @@ const checkPluginInlet = (availableInputParams, appliedPlugins, errors) => {
                 require = true;
                 requiredInputParams.push(pluginInputParam);
             }
+        }
+        if (!require) {
+            const newInputParams = new Set();
+
+            availableInputParams.forEach((availableInputParam) =>
+                newInputParams.add(availableInputParam.id)
+            );
+            appliedPlugin.outputParams.forEach((pluginOutputParam) => {
+                newInputParams.add(pluginOutputParam.id);
+            });
+
+            availableInputParams = [...outputs].map((id) =>
+                allParams.find((param) => param.id == id)
+            );
         }
         if (require) {
             errors.inputErrors.push({

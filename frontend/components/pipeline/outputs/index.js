@@ -44,20 +44,24 @@ export default function OutputBox({
             </span>
             <div className="mt-3 mb-1 font-medium">Implicit</div>
             <ul className="bg-stone-100 py-1 px-1">
-                {implicitOutputParams.map((input) => {
-                    return (
-                        <li key={input.id} className="">
-                            <Popover>
-                                <PopoverTrigger className="hover:bg-gray-50">
-                                    - {input.name}
-                                </PopoverTrigger>
-                                <PopoverContent className="ml-10">
-                                    {input.description}
-                                </PopoverContent>
-                            </Popover>
-                        </li>
-                    );
-                })}
+                {implicitOutputParams.length ? (
+                    implicitOutputParams.map((input) => {
+                        return (
+                            <li key={input.id} className="">
+                                <Popover>
+                                    <PopoverTrigger className="hover:bg-gray-50">
+                                        - {input.name}
+                                    </PopoverTrigger>
+                                    <PopoverContent className="ml-10">
+                                        {input.description}
+                                    </PopoverContent>
+                                </Popover>
+                            </li>
+                        );
+                    })
+                ) : (
+                    <span className="tracking-tight">nothign to show</span>
+                )}
             </ul>
             {explicitOutputParams.length ? (
                 <div className="mt-3 mb-1 font-medium">Desired</div>
@@ -93,7 +97,7 @@ export default function OutputBox({
                     );
                 })}
             </ul>
-            <div className="mt-10">
+            <div className="mt-5">
                 <AddOutput
                     changeExplicitOutputParams={changeExplicitOutputParams}
                     leftParams={allParams.filter((outputParam) => {
