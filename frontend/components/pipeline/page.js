@@ -68,6 +68,7 @@ export default function Pipeline({ allParams, allPlugins }) {
                     allParams={allParams}
                     allPlugins={allPlugins}
                     errors={errors.pluginErrors}
+                    pluginGenErrors={errors.pluginGenErrors}
                 />
                 <OutputBox
                     implicitOutputParams={implicitOutputParams}

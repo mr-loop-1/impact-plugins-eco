@@ -48,6 +48,7 @@ export default function PluginBox({
     allParams,
     allPlugins,
     errors,
+    pluginGenErrors,
 }) {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
@@ -174,7 +175,7 @@ export default function PluginBox({
                 />
             </div>
             <div className="mt-5">
-                <PluginGenError errors={errors} />
+                <PluginGenError errors={pluginGenErrors} />
             </div>
         </Card>
     );

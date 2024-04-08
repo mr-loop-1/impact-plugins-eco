@@ -69,7 +69,7 @@ export const PluginGenError = ({ errors }) => {
                         </span>{" "}
                         requires the follwing plugin -{" "}
                         <span className="italic font-medium">
-                            {error.targetOutputParam.name}
+                            {error.requiredPlugin.name}
                         </span>{" "}
                         .
                     </li>
@@ -82,7 +82,7 @@ export const PluginGenError = ({ errors }) => {
 export const OutputError = ({ error }) => {
     return (
         <div className="bg-orange-600 text-white w-fit px-2 font-sans text-sm">
-            {error.errorId == 3 ? (
+            {error.type == 3 ? (
                 <span>
                     error {error.errorId}: this output{" "}
                     <span className="italic font-medium">
@@ -90,11 +90,11 @@ export const OutputError = ({ error }) => {
                     </span>{" "}
                     can be removed if input params of plugin{" "}
                     <span className="italic font-medium">
-                        {error.targetPlugin.name}
+                        {error.requiredPlugin.name}
                     </span>{" "}
                     can't be resolved.
                 </span>
-            ) : error.errorId == 4 ? (
+            ) : error.type == 4 ? (
                 <span>
                     error {error.errorId}: this output{" "}
                     <span className="italic font-medium">
@@ -102,11 +102,11 @@ export const OutputError = ({ error }) => {
                     </span>{" "}
                     can be removed if plugin{" "}
                     <span className="italic font-medium">
-                        {error.targetPlugin.name}
+                        {error.requiredPlugin.name}
                     </span>{" "}
                     and its input params can't be added.
                 </span>
-            ) : error.errorId == 5 ? (
+            ) : error.type == 5 ? (
                 <span>
                     error {error.errorId}: this output{" "}
                     <span className="italic font-medium">
@@ -114,7 +114,7 @@ export const OutputError = ({ error }) => {
                     </span>{" "}
                     can be removed if plugin{" "}
                     <span className="italic font-medium">
-                        {error.targetPlugin.name}
+                        {error.requiredPlugin.name}
                     </span>{" "}
                     whose all dependencies are there in inputs can't be added.
                 </span>

@@ -119,7 +119,7 @@ const checkPluginOutlet = (
                 type: 3,
                 targetOutputParam: explicitOutputParam,
                 targetOutputIndex: idx,
-                targetPlugin: existsPlugin,
+                requiredPlugin: existsPlugin,
             });
             errorId++;
         } else {
@@ -176,6 +176,7 @@ const checkPluginOutlet = (
                     errorId: errorId,
                     type: 4,
                     targetOutputIndex: idx,
+                    targetOutputParam: explicitOutputParam,
                     requiredPlugin: matchedPlugin,
                     requiredInputs: freqCount[0].missingInputs,
                 });
@@ -200,6 +201,7 @@ const checkPluginOutlet = (
                     errorId: errorId,
                     type: 5,
                     targetOutputIndex: idx,
+                    targetOutputParam: explicitOutputParam,
                     requiredPlugin: matchedPlugin,
                 });
                 errors.pluginGenErrors.push({
