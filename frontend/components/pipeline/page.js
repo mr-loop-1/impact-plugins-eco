@@ -47,7 +47,7 @@ export default function Pipeline({ allParams, allPlugins }) {
 
     return (
         <main className="">
-            <Card className="w-[60%] mx-auto">
+            <div className="w-[60%] mx-auto">
                 <InputBox
                     userInputs={userInputs}
                     changeUserInputs={changeUserInputs}
@@ -81,7 +81,7 @@ export default function Pipeline({ allParams, allPlugins }) {
                     allParams={allParams}
                     errors={errors.outputErrors}
                 />
-            </Card>
+            </div>
         </main>
     );
 }

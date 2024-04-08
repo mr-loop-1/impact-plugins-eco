@@ -26,7 +26,8 @@ export default function InputBox({
     errors,
 }) {
     return (
-        <div>
+        <Card className="px-10 py-10">
+            <span className="text-bold">Input Parameters</span>
             <ul>
                 {userInputs.map((userInput) => {
                     return (
@@ -71,6 +72,6 @@ export default function InputBox({
                     })}
                 />
             </div>
-        </div>
+        </Card>
     );
 }
