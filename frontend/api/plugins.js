@@ -1,4 +1,4 @@
-export const getPlugins = async () => {
+export const getPlugins = () => {
     return [
         {
             id: 1,

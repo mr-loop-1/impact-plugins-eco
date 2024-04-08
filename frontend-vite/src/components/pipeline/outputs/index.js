@@ -13,22 +13,41 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { getParams } from "@/api/params";
-import AddInput from "./add";
+import AddInput from "../inputs";
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
+import AddOutput from "./add";
 
 const frameworks = getParams();
 
-export default function InputBox({ inputs, changeInputs }) {
-    console.log("🚀 ~ InputBox ~ inputs:", inputs);
-
+export default function OutputBox({
+    implicitOutputs,
+    explicitOutputs,
+    changeExplicitOutputs,
+}) {
     return (
         <div>
             <ul>
-                {inputs.map((input) => {
+                {implicitOutputs.map((input) => {
+                    return (
+                        <li>
+                            <Popover>
+                                <PopoverTrigger className="hover:bg-gray-400">
+                                    {input.name}
+                                </PopoverTrigger>
+                                <PopoverContent>
+                                    {input.description}
+                                </PopoverContent>
+                            </Popover>
+                        </li>
+                    );
+                })}
+                <hr />
+                <hr />
+                {explicitOutputs.map((input) => {
                     return (
                         <li>
                             <Popover>
@@ -41,7 +60,7 @@ export default function InputBox({ inputs, changeInputs }) {
                             </Popover>
                             <Cross2Icon
                                 onClick={() => {
-                                    changeInputs((curentInputs) =>
+                                    changeExplicitOutputs((curentInputs) =>
                                         curentInputs.filter(
                                             (inputItem) =>
                                                 inputItem.id != input.id
@@ -54,7 +73,10 @@ export default function InputBox({ inputs, changeInputs }) {
                 })}
             </ul>
             <div className="mt-10">
-                <AddInput changeInputs={changeInputs} />
+                <AddOutput
+                    changeExplicitOutputs={changeExplicitOutputs}
+                    currentOutputs={[...implicitOutputs, ...explicitOutputs]}
+                />
             </div>
         </div>
     );

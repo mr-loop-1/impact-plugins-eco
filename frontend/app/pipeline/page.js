@@ -10,20 +10,21 @@ export default function Home() {
 
     let allParams, allPlugins;
 
-    useEffect(async () => {
-        allParams = await getParams();
-        allPlugins = await getPlugins();
+    useEffect(() => {
+        allParams = getParams();
+        allPlugins = getPlugins();
 
         setIsLoading(() => false);
     });
 
     return (
         <>
-            {isLoading ? (
+            <PipelineHelper allParams={allParams} allPlugins={allPlugins} />
+            {/* {isLoading ? (
                 <PipelineHelper allParams={allParams} allPlugins={allPlugins} />
             ) : (
-                <Loading />
-            )}
+                <LoadingBlocker />
+            )} */}
         </>
     );
 }

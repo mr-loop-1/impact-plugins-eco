@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { getParams } from "@/api/params";
-import AddInput from "./add";
+import AddInput from "../inputs";
 import {
     Popover,
     PopoverContent,

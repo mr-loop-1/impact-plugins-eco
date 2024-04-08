@@ -13,18 +13,24 @@ import {
 } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 
-export default function Pipeline({ allParams, allPlugins }) {
+export default function Home({ allParams, allPlugins }) {
     const [inputs, changeInputs] = useState([]);
     const [plugins, changePlugins] = useState([]);
     const [implicitOutputs, changeImplicitOutputs] = useState([]);
     const [explicitOutputs, changeExplicitOutputs] = useState([]);
-    const [errors, changeErrors] = useState([]);
 
     useEffect(() => {
-        changeErrors([]);
         changeImplicitOutputs((impl) =>
             getImplicitOutputs(inputs, plugins, explicitOutputs)
         );
+        // changeExplicitOutputs((expl) =>
+        //     expl.filter((exp) => {
+        //         if (implicitOutputs.find((impl) => impl.id == exp.id) != 1) {
+        //             return true;
+        //         }
+        //         return false;
+        //     })
+        // );
     }, [inputs, plugins, explicitOutputs]);
 
     return (
