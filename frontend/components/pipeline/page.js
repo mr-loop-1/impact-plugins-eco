@@ -14,28 +14,38 @@ import {
 import { useEffect, useState } from "react";
 
 export default function Pipeline({ allParams, allPlugins }) {
-    const [inputs, changeInputs] = useState([]);
-    const [plugins, changePlugins] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [userInputs, changeUserInputs] = useState([]);
+    const [userPlugins, changeUserPlugins] = useState([]);
     const [implicitOutputs, changeImplicitOutputs] = useState([]);
     const [explicitOutputs, changeExplicitOutputs] = useState([]);
     const [errors, changeErrors] = useState([]);
 
     useEffect(() => {
+        setIsLoading(() => true);
         changeErrors([]);
         changeImplicitOutputs((impl) =>
-            getImplicitOutputs(inputs, plugins, explicitOutputs)
+            getImplicitOutputs(userInputs, userPlugins, explicitOutputs)
         );
-    }, [inputs, plugins, explicitOutputs]);
+        /**
+         * get errors again from the algo and set here
+         */
+        setIsLoading(() => false);
+    }, [userInputs, userPlugins, explicitOutputs]);
 
     return (
         <main className="">
             <Card className="w-[60%] mx-auto">
                 <InputBox
-                    inputs={inputs}
-                    changeInputs={changeInputs}
+                    userInputs={userInputs}
+                    changeUserInputs={changeUserInputs}
                     allParams={allParams}
+                    allPlugins={allPlugins}
                 />
-                <PluginBox plugins={plugins} changePlugins={changePlugins} />
+                <PluginBox
+                    plugins={userPlugins}
+                    changePlugins={changeUserPlugins}
+                />
                 <OutputBox
                     implicitOutputs={implicitOutputs}
                     explicitOutputs={explicitOutputs.filter((exp) => {

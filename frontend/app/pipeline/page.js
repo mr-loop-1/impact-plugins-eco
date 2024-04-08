@@ -17,6 +17,9 @@ export default function Home() {
         setIsLoading(() => false);
     });
 
+    allParams = getParams();
+    allPlugins = getPlugins();
+
     return (
         <>
             <PipelineHelper allParams={allParams} allPlugins={allPlugins} />

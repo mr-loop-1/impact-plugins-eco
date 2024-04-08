@@ -28,9 +28,9 @@ import {
 } from "@/components/ui/popover";
 import { getParams } from "@/api/params";
 
-const frameworks = getParams();
+// const frameworks = getParams();
 
-export default function AddInput({ changeInputs }) {
+export default function AddInput({ changeUserInputs, leftInputs }) {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
 
@@ -56,7 +56,7 @@ export default function AddInput({ changeInputs }) {
                     <CommandEmpty>No framework found.</CommandEmpty>
                     <CommandGroup>
                         <CommandList>
-                            {frameworks.map((framework) => (
+                            {leftInputs.map((framework) => (
                                 <CommandItem
                                     key={framework.id}
                                     value={framework.name}
@@ -66,7 +66,7 @@ export default function AddInput({ changeInputs }) {
                                                 ? ""
                                                 : currentValue
                                         );
-                                        changeInputs((inp) => [
+                                        changeUserInputs((inp) => [
                                             ...inp,
                                             framework,
                                         ]);

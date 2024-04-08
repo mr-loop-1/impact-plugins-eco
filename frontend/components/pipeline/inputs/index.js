@@ -1,4 +1,3 @@
-"use client";
 import * as React from "react";
 import { useState } from "react";
 import { CaretSortIcon, CheckIcon, Cross2Icon } from "@radix-ui/react-icons";
@@ -12,36 +11,32 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { getParams } from "@/api/params";
-import AddInput from "./add";
+import AddInputParam from "./add";
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
 
-const frameworks = getParams();
-
-export default function InputBox({ inputs, changeInputs }) {
-    console.log("🚀 ~ InputBox ~ inputs:", inputs);
-
+export default function InputBox({ userInputs, changeUserInputs, allParams }) {
     return (
         <div>
             <ul>
-                {inputs.map((input) => {
+                {userInputs.map((userInput) => {
                     return (
                         <li>
                             <Popover>
                                 <PopoverTrigger className="hover:bg-gray-400">
-                                    {input.name}
+                                    {userInput.name}
                                 </PopoverTrigger>
                                 <PopoverContent>
-                                    {input.description}
+                                    {userInput.description}
                                 </PopoverContent>
                             </Popover>
                             <Cross2Icon
+                                className="inline"
                                 onClick={() => {
-                                    changeInputs((curentInputs) =>
+                                    changeUserInputs((curentInputs) =>
                                         curentInputs.filter(
                                             (inputItem) =>
                                                 inputItem.id != input.id
@@ -54,7 +49,18 @@ export default function InputBox({ inputs, changeInputs }) {
                 })}
             </ul>
             <div className="mt-10">
-                <AddInput changeInputs={changeInputs} />
+                <AddInputParam
+                    changeUserInputs={changeUserInputs}
+                    leftInputs={allParams.filter((inputParam) => {
+                        if (
+                            userInputs.find((userInput) => {
+                                return userInput.id == inputParam.id;
+                            })
+                        )
+                            return false;
+                        return true;
+                    })}
+                />
             </div>
         </div>
     );
