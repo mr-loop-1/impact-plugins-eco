@@ -1,5 +1,6 @@
 "use client";
 import InputBox from "@/components/pipeline/inputs/index";
+import PluginBox from "@/components/pipeline/plugins/index";
 import {
     Card,
     CardContent,
@@ -19,6 +20,7 @@ export default function Home() {
         <main className="">
             <Card className="w-[60%] mx-auto">
                 <InputBox inputs={inputs} changeInputs={changeInputs} />
+                <PluginBox plugins={plugins} changePlugins={changePlugins} />
             </Card>
         </main>
     );

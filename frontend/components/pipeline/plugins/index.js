@@ -1,7 +1,13 @@
 "use client";
 import * as React from "react";
 import { useState } from "react";
-import { CaretSortIcon, CheckIcon, Cross2Icon } from "@radix-ui/react-icons";
+import {
+    ArrowDownIcon,
+    ArrowUpIcon,
+    CaretSortIcon,
+    CheckIcon,
+    Cross2Icon,
+} from "@radix-ui/react-icons";
 
 import {
     Card,
@@ -19,20 +25,56 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
+import AddPlugin from "./add";
 
 const frameworks = getParams();
 
-export default function InputBox({ plugins, changePlugins }) {
-    console.log("🚀 ~ InputBox ~ inputs:", inputs);
+function swapAdjacent(array, index, flow) {
+    if (flow === "back" && index > 0) {
+        const temp = array[index];
+        array[index] = array[index - 1];
+        array[index - 1] = temp;
+    } else if (flow === "front" && index < array.length - 1) {
+        const temp = array[index];
+        array[index] = array[index + 1];
+        array[index + 1] = temp;
+    }
+    console.log("🚀 ~ swapAdjacent ~ array:", array);
+    return array;
+}
+
+export default function PluginBox({ plugins, changePlugins }) {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
 
     return (
         <div>
             <ul>
-                {plugins.map((input) => {
+                {plugins.map((input, idx) => {
                     return (
                         <li>
+                            <ArrowUpIcon
+                                onClick={() => {
+                                    changePlugins((currentPlugins) => [
+                                        ...swapAdjacent(
+                                            currentPlugins,
+                                            idx,
+                                            "back"
+                                        ),
+                                    ]);
+                                }}
+                            />
+                            <ArrowDownIcon
+                                onClick={() => {
+                                    changePlugins((currentPlugins) => [
+                                        ...swapAdjacent(
+                                            currentPlugins,
+                                            idx,
+                                            "front"
+                                        ),
+                                    ]);
+                                }}
+                            />
                             <Popover>
                                 <PopoverTrigger className="hover:bg-gray-400">
                                     {input.name}
@@ -43,7 +85,7 @@ export default function InputBox({ plugins, changePlugins }) {
                             </Popover>
                             <Cross2Icon
                                 onClick={() => {
-                                    changeInputs((curentInputs) =>
+                                    changePlugins((curentInputs) =>
                                         curentInputs.filter(
                                             (inputItem) =>
                                                 inputItem.id != input.id
@@ -56,7 +98,7 @@ export default function InputBox({ plugins, changePlugins }) {
                 })}
             </ul>
             <div className="mt-10">
-                <AddInput changePlugins={changePlugins} />
+                <AddPlugin changePlugins={changePlugins} />
             </div>
         </div>
     );

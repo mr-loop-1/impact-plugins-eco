@@ -27,6 +27,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import { getParams } from "@/api/params";
+import { getPlugins } from "@/api/plugins";
 
 const frameworks = getPlugins();
 
@@ -66,7 +67,7 @@ export default function AddPlugin({ changePlugins }) {
                                                 ? ""
                                                 : currentValue
                                         );
-                                        changeInputs((inp) => [
+                                        changePlugins((inp) => [
                                             ...inp,
                                             framework,
                                         ]);
