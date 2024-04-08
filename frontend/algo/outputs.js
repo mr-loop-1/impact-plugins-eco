@@ -1,5 +1,5 @@
 export const getImplicitOutputs = (availableInputParams, appliedPlugins) => {
-    const outputs = new Set();
+    const outputs = new Set(availableInputParams);
 
     for (const plugin of appliedPlugins) {
         let fail = false;

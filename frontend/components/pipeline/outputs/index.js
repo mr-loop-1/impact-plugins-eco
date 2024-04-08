@@ -60,7 +60,7 @@ export default function OutputBox({
                             </Popover>
                             <Cross2Icon
                                 onClick={() => {
-                                    changeInputs((curentInputs) =>
+                                    changeExplicitOutputs((curentInputs) =>
                                         curentInputs.filter(
                                             (inputItem) =>
                                                 inputItem.id != input.id
