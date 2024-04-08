@@ -31,7 +31,5 @@ export const getImplicitOutputs = (
     }
     const exhaustiveParams = allParams;
 
-    return [...outputs].map((id) =>
-        exhaustiveParams.find((param) => param.id == id)
-    );
+    return [...outputs].map((id) => allParams.find((param) => param.id == id));
 };

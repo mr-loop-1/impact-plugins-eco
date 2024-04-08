@@ -16,3 +16,22 @@ export const InputParamError = ({ errors }) => {
         </ul>
     );
 };
+
+export const PluginParamError = ({ error }) => {
+    return (
+        <>
+            {error.type == 2 ? (
+                <span>
+                    {`Error ${error.errorId}: this plugin ${
+                        error.targetPlugin.name
+                    } can be removed if following input params are not available - 
+                    ${error.requiredInputParams.map(
+                        (inputParams) => ` ${inputParams.name} `
+                    )}`}
+                </span>
+            ) : (
+                <span></span>
+            )}
+        </>
+    );
+};

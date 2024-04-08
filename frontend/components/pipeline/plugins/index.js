@@ -25,6 +25,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import AddPlugin from "./add";
+import { PluginParamError } from "@/components/messages";
 
 function swapAdjacent(array, index, flow) {
     if (flow === "back" && index > 0) {
@@ -98,6 +99,18 @@ export default function PluginBox({
                                     );
                                 }}
                             />
+                            {errors.find(
+                                (error) => error.targetPluginIndex == idx
+                            ) && (
+                                <div>
+                                    <PluginParamError
+                                        error={errors.find(
+                                            (error) =>
+                                                error.targetPluginIndex == idx
+                                        )}
+                                    />
+                                </div>
+                            )}
                         </li>
                     );
                 })}
