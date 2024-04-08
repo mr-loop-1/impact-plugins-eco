@@ -14,6 +14,11 @@ import {
 import { cn } from "@/lib/utils";
 import { getParams } from "@/api/params";
 import AddInput from "../inputs";
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover";
 
 const frameworks = getParams();
 
@@ -26,7 +31,18 @@ export default function InputBox({ inputs, changeInputs }) {
         <div>
             <ul>
                 {inputs.map((input) => {
-                    return <li>{input}</li>;
+                    return (
+                        <li>
+                            <Popover>
+                                <PopoverTrigger className="hover:bg-gray-400">
+                                    {input}
+                                </PopoverTrigger>
+                                <PopoverContent>
+                                    Place content for the popover here.
+                                </PopoverContent>
+                            </Popover>
+                        </li>
+                    );
                 })}
             </ul>
             <div className="mt-10">
