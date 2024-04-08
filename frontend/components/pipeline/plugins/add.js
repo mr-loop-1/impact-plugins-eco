@@ -28,9 +28,9 @@ import {
 } from "@/components/ui/popover";
 import { getParams } from "@/api/params";
 
-const frameworks = getParams();
+const frameworks = getPlugins();
 
-export default function AddInput({ changeInputs }) {
+export default function AddPlugin({ changePlugins }) {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
 

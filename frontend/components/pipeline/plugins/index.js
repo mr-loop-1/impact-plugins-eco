@@ -22,7 +22,7 @@ import {
 
 const frameworks = getParams();
 
-export default function InputBox({ inputs, changeInputs }) {
+export default function InputBox({ plugins, changePlugins }) {
     console.log("🚀 ~ InputBox ~ inputs:", inputs);
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
@@ -30,7 +30,7 @@ export default function InputBox({ inputs, changeInputs }) {
     return (
         <div>
             <ul>
-                {inputs.map((input) => {
+                {plugins.map((input) => {
                     return (
                         <li>
                             <Popover>
@@ -56,7 +56,7 @@ export default function InputBox({ inputs, changeInputs }) {
                 })}
             </ul>
             <div className="mt-10">
-                <AddInput changeInputs={changeInputs} />
+                <AddInput changePlugins={changePlugins} />
             </div>
         </div>
     );
