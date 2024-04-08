@@ -1,4 +1,4 @@
-export default compute = (
+export const compute = (
     availableInputParams,
     appliedPlugins,
     explicitOutputParams
@@ -8,43 +8,52 @@ export default compute = (
      * ? 1. that no plugin is giving the given output param
      * ? 2. that no available input is able to staisfy the plugin demands
      */
+    const errors = {
+        inputErrors: [],
+        pluginErrors: [],
+        outputErrors: [],
+    };
 
-    const upperErrors = checkPluginInlet(availableInputParams, appliedPlugins);
-    const lowerErrors = checkPluginOutlet(
+    const errorId = checkPluginInlet(
+        availableInputParams,
+        appliedPlugins,
+        errors
+    );
+    checkPluginOutlet(
         appliedPlugins,
         explicitOutputParams,
-        upperErrors[upperErrors.length - 1].errorId + 1
+        errorId + 1,
+        errors
     );
 
-    return [...upperErrors, ...lowerErrors];
+    return errors;
 };
 
-const checkPluginInlet = (availableInputParams, appliedPlugins) => {
-    const errors = [];
+const checkPluginInlet = (availableInputParams, appliedPlugins, errors) => {
+    // const errors = [];
     let errorId = 1;
     appliedPlugins.forEach((appliedPlugin, pluginIdx) => {
         const requiredInputParams = [];
         let require = false;
         for (const pluginInputParam of appliedPlugin.inputParams) {
             if (
-                availableInputParams.find(
+                !availableInputParams.find(
                     (availableInputParam) =>
                         availableInputParam.id == pluginInputParam.id
-                ) == -1
+                )
             ) {
                 require = true;
                 requiredInputParams.push(pluginInputParam);
             }
         }
         if (require) {
-            errors.push({
+            errors.inputErrors.push({
                 errorId,
                 type: 1,
                 requiredInputParams,
                 targetPlugin: appliedPlugin,
             });
-            errorId++;
-            errors.push({
+            errors.pluginErrors.push({
                 errorId,
                 type: 2,
                 requiredInputParams,
@@ -54,9 +63,15 @@ const checkPluginInlet = (availableInputParams, appliedPlugins) => {
             errorId++;
         }
     });
+    return errorId;
 };
 
-const checkPluginOutlet = (appliedPlugins, explicitOutputParams, errorId) => {
-    const errors = [];
+const checkPluginOutlet = (
+    appliedPlugins,
+    explicitOutputParams,
+    errorId,
+    errors
+) => {
+    // const errors = [];
     return errors;
 };

@@ -1,4 +1,5 @@
 "use client";
+import { compute } from "@/algo/compute";
 import { getImplicitOutputs } from "@/algo/outputs";
 import InputBox from "@/components/pipeline/inputs/index";
 import OutputBox from "@/components/pipeline/outputs/index";
@@ -19,22 +20,24 @@ export default function Pipeline({ allParams, allPlugins }) {
     const [userPlugins, changeUserPlugins] = useState([]);
     const [implicitOutputParams, changeImplicitOutputParams] = useState([]);
     const [explicitOutputParams, changeExplicitOutputParams] = useState([]);
-    console.log("🚀 ~ Pipeline ~ explicitOutputParams:", explicitOutputParams);
     const [errors, changeErrors] = useState({
         inputErrors: [],
         pluginErrors: [],
         outputErrors: [],
     });
-
+    console.log("🚀 ~ Pipeline ~ errors:", errors);
     useEffect(() => {
         setIsLoading(() => true);
-        changeErrors({
+        changeErrors(() => ({
             inputErrors: [],
             pluginErrors: [],
             outputErrors: [],
-        });
+        }));
         changeImplicitOutputParams((impl) =>
-            getImplicitOutputs(userInputs, userPlugins, explicitOutputParams)
+            getImplicitOutputs(userInputs, userPlugins, allParams)
+        );
+        changeErrors((err) =>
+            compute(userInputs, userPlugins, explicitOutputParams)
         );
         /**
          * get errors again from the algo and set here

@@ -20,8 +20,6 @@ import {
 } from "@/components/ui/popover";
 import AddOutput from "./add";
 
-const frameworks = getParams();
-
 export default function OutputBox({
     implicitOutputParams,
     explicitOutputParams,

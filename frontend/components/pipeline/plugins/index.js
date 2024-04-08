@@ -26,8 +26,6 @@ import {
 } from "@/components/ui/popover";
 import AddPlugin from "./add";
 
-const frameworks = getParams();
-
 function swapAdjacent(array, index, flow) {
     if (flow === "back" && index > 0) {
         const temp = array[index];
@@ -38,7 +36,6 @@ function swapAdjacent(array, index, flow) {
         array[index] = array[index + 1];
         array[index + 1] = temp;
     }
-    console.log("🚀 ~ swapAdjacent ~ array:", array);
     return array;
 }
 

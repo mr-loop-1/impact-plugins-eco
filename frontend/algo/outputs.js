@@ -1,5 +1,15 @@
-export const getImplicitOutputs = (availableInputParams, appliedPlugins) => {
-    const outputs = new Set(availableInputParams);
+import { getParams } from "@/api/params";
+
+export const getImplicitOutputs = (
+    availableInputParams,
+    appliedPlugins,
+    allParams
+) => {
+    const outputs = new Set();
+
+    availableInputParams.forEach((availableInputParam) =>
+        outputs.add(availableInputParam.id)
+    );
 
     for (const plugin of appliedPlugins) {
         let fail = false;
@@ -14,10 +24,13 @@ export const getImplicitOutputs = (availableInputParams, appliedPlugins) => {
         }
         if (!fail) {
             plugin.outputParams.forEach((pluginOutputParam) => {
-                outputs.add(pluginOutputParam);
+                outputs.add(pluginOutputParam.id);
             });
         }
     }
+    const exhaustiveParams = allParams;
 
-    return [...outputs];
+    return [...outputs].map((id) =>
+        exhaustiveParams.find((param) => param.id == id)
+    );
 };
