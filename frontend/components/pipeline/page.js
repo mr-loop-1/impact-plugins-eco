@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function Home({ allParams, allPlugins }) {
     const [inputs, changeInputs] = useState([]);
     const [plugins, changePlugins] = useState([]);
     const [implicitOutputs, changeImplicitOutputs] = useState([]);
@@ -36,7 +36,11 @@ export default function Home() {
     return (
         <main className="">
             <Card className="w-[60%] mx-auto">
-                <InputBox inputs={inputs} changeInputs={changeInputs} />
+                <InputBox
+                    inputs={inputs}
+                    changeInputs={changeInputs}
+                    allParams={allParams}
+                />
                 <PluginBox plugins={plugins} changePlugins={changePlugins} />
                 <OutputBox
                     implicitOutputs={implicitOutputs}
