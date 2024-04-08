@@ -15,10 +15,11 @@ export const getImplicitOutputs = (
         let fail = false;
         for (const pluginInputParam of plugin.inputParams) {
             if (
-                availableInputParams.find((availableInputParam) => {
-                    availableInputParam.id == pluginInputParam.id;
-                }) == -1
+                !availableInputParams.find((availableInputParam) => {
+                    return availableInputParam.id == pluginInputParam.id;
+                })
             ) {
+                console.log("here again");
                 fail = true;
             }
         }

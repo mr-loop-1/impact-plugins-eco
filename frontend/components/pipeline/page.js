@@ -33,12 +33,12 @@ export default function Pipeline({ allParams, allPlugins }) {
             pluginErrors: [],
             outputErrors: [],
         }));
-        changeImplicitOutputParams((impl) =>
-            getImplicitOutputs(userInputs, userPlugins, allParams)
-        );
-        changeErrors((err) =>
-            compute(userInputs, userPlugins, explicitOutputParams)
-        );
+        changeImplicitOutputParams((impl) => [
+            ...getImplicitOutputs(userInputs, userPlugins, allParams),
+        ]);
+        changeErrors((err) => ({
+            ...compute(userInputs, userPlugins, explicitOutputParams),
+        }));
         /**
          * get errors again from the algo and set here
          */

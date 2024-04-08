@@ -17,8 +17,14 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
+import { InputParamError } from "@/components/messages";
 
-export default function InputBox({ userInputs, changeUserInputs, allParams }) {
+export default function InputBox({
+    userInputs,
+    changeUserInputs,
+    allParams,
+    errors,
+}) {
     return (
         <div>
             <ul>
@@ -48,6 +54,9 @@ export default function InputBox({ userInputs, changeUserInputs, allParams }) {
                     );
                 })}
             </ul>
+            <div>
+                <InputParamError errors={errors} />
+            </div>
             <div className="mt-10 mb-10">
                 <AddInputParam
                     changeUserInputs={changeUserInputs}
