@@ -40,23 +40,24 @@ export default function AddPlugin({ changeUserPlugins, leftPlugins }) {
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
-                    className="w-[200px] justify-between"
+                    className="w-full justify-between"
                 >
-                    Select Plugins...
+                    Add Plugins ...
                     <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[200px] p-0">
+            <PopoverContent className="w-[--radix-popover-trigger-width] max-h-[--radix-popover-content-available-height]  p-0">
                 <Command>
                     <CommandInput
-                        placeholder="Search framework..."
-                        className="h-9"
+                        placeholder="Search plugins..."
+                        className="h-9 font-semibold"
                     />
-                    <CommandEmpty>No framework found.</CommandEmpty>
+                    <CommandEmpty>No plugins found.</CommandEmpty>
                     <CommandGroup>
                         <CommandList>
                             {leftPlugins.map((framework) => (
                                 <CommandItem
+                                    className="font-medium"
                                     key={framework.id}
                                     value={framework.name}
                                     onSelect={(currentValue) => {

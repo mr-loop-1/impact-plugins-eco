@@ -35,40 +35,49 @@ export default function OutputBox({
     return (
         <Card
             className={clsx(
-                "p-4 mt-5 w-full shadow-lime-300 shadow-sm",
+                "p-4 mt-5 w-full shadow-lime-300 shadow-sm mb-48",
                 errors.length && "shadow-amber-300 shadow-sm"
             )}
         >
-            <ul>
+            <span className="font-bold text-xl tracking-tighter">
+                Output Parameters
+            </span>
+            <div className="mt-3 mb-1 font-medium">Implicit</div>
+            <ul className="bg-stone-100 py-1 px-1">
                 {implicitOutputParams.map((input) => {
                     return (
-                        <li>
+                        <li key={input.id} className="">
                             <Popover>
-                                <PopoverTrigger className="hover:bg-gray-400">
-                                    {input.name}
+                                <PopoverTrigger className="hover:bg-gray-50">
+                                    - {input.name}
                                 </PopoverTrigger>
-                                <PopoverContent>
+                                <PopoverContent className="ml-10">
                                     {input.description}
                                 </PopoverContent>
                             </Popover>
                         </li>
                     );
                 })}
-                <hr />
-                <hr />
+            </ul>
+            {explicitOutputParams.length ? (
+                <div className="mt-3 mb-1 font-medium">Desired</div>
+            ) : (
+                <></>
+            )}
+            <ul className="bg-stone-100 py-1 px-1">
                 {explicitOutputParams.map((input) => {
                     return (
                         <li>
                             <Popover>
-                                <PopoverTrigger className="hover:bg-gray-400">
-                                    {input.name}
+                                <PopoverTrigger className="hover:bg-gray-50">
+                                    - {input.name}
                                 </PopoverTrigger>
-                                <PopoverContent>
+                                <PopoverContent className="ml-10">
                                     {input.description}
                                 </PopoverContent>
                             </Popover>
-                            <Cross2Icon
-                                className="inline"
+                            <span
+                                className="ml-3 inline text-sm font-medium text-red-600 cursor-pointer underline"
                                 onClick={() => {
                                     changeExplicitOutputParams((curentInputs) =>
                                         curentInputs.filter(
@@ -77,7 +86,9 @@ export default function OutputBox({
                                         )
                                     );
                                 }}
-                            />
+                            >
+                                delete
+                            </span>
                         </li>
                     );
                 })}

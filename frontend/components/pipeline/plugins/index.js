@@ -61,7 +61,7 @@ export default function PluginBox({
             <span className="font-bold text-xl tracking-tight">
                 pipeline: ordered
             </span>
-            <ul className="mt-4">
+            <ul className="mt-4 bg-stone-100 py-1 px-1">
                 {userPlugins.map((input, idx, arr) => {
                     return (
                         <li>
@@ -119,7 +119,7 @@ export default function PluginBox({
                             {errors.find(
                                 (error) => error.targetPluginIndex == idx
                             ) && (
-                                <div>
+                                <div className="mt-1 mb-3">
                                     <PluginParamError
                                         error={errors.find(
                                             (error) =>
@@ -132,7 +132,7 @@ export default function PluginBox({
                     );
                 })}
             </ul>
-            <div className="mt-10  mb-10">
+            <div className="mt-5">
                 <AddPlugin
                     changeUserPlugins={changeUserPlugins}
                     leftPlugins={allPlugins.filter((plugin) => {

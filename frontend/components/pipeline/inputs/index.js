@@ -36,7 +36,7 @@ export default function InputBox({
             <span className="font-bold text-xl tracking-tighter">
                 Input Parameters
             </span>
-            <ul className="mt-3">
+            <ul className="mt-3 bg-stone-100 py-1 px-1">
                 {userInputs.length ? (
                     userInputs.map((userInput) => {
                         return (

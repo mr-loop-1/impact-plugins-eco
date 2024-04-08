@@ -41,7 +41,7 @@ export default function AddInputParam({ changeUserInputs, leftInputs }) {
                         placeholder="Search parameters..."
                         className="h-9 font-medium"
                     />
-                    <CommandEmpty>No framework found.</CommandEmpty>
+                    <CommandEmpty>No params found.</CommandEmpty>
                     <CommandGroup>
                         <CommandList>
                             {leftInputs.map((framework) => (
