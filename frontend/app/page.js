@@ -6,6 +6,12 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getPlugins } from "@/api/plugins";
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function Home() {
     const [search, setSearch] = useState("");
@@ -41,54 +47,68 @@ export default function Home() {
             <ul className="mt-5">
                 {data.map((plugin) => {
                     return (
-                        <li key={plugin.id}>
-                            <div className="">
-                                <div className="flex justify-between">
-                                    <span>
-                                        <span className="text-2xl font-bold tracking-tight">
-                                            {plugin.name}
-                                        </span>
-                                        <span className="ml-2 text-sm text-gray-600 tracking-tight">
-                                            @{plugin.scope}
-                                        </span>
-                                    </span>
-                                    <span
-                                        className={clsx(
-                                            "ml-3 my-auto inline text-sm font-bold rounded text-white px-1 ",
-                                            plugin.domain == "standard" &&
-                                                "bg-lime-600",
-                                            plugin.domain == "community" &&
-                                                "bg-orange-600",
-                                            plugin.domain == "unofficial" &&
-                                                "bg-blue-600"
-                                        )}
-                                    >
-                                        {plugin.domain}
-                                    </span>
-                                </div>
-                                <div className="mt-4 text-sm text-gray-800">
-                                    {plugin.description}
-                                </div>
-                                <div className="mt-4 flex">
-                                    <Avatar className="w-8 h-8">
-                                        <AvatarImage
-                                            className="w-8 h-8"
-                                            src={`https://github.com/${plugin.owner}.png`}
-                                        />
-                                        {/* <AvatarFallback>CN</AvatarFallback> */}
-                                    </Avatar>
-                                    <span className="ml-2 my-auto">
-                                        <span className="font-medium">
-                                            {plugin.owner}
-                                        </span>{" "}
-                                        <span className="font-light">
-                                            published on
-                                        </span>
-                                        {plugin.repo}
-                                    </span>
-                                </div>
-                            </div>
-                            <hr className="w-full mt-5 mb-5" />
+                        <li key={plugin.id} id={plugin.id}>
+                            <Accordion type="single" collapsible>
+                                <AccordionItem value="item-1">
+                                    <AccordionTrigger className="w-full">
+                                        <div className="mt-3 mb-5">
+                                            <div className="flex justify-between">
+                                                <span>
+                                                    <span className="text-2xl font-bold tracking-tight">
+                                                        {plugin.name}
+                                                    </span>
+                                                    <span className="ml-2 text-sm text-gray-600 tracking-tight">
+                                                        @{plugin.scope}
+                                                    </span>
+                                                </span>
+                                                <span
+                                                    className={clsx(
+                                                        "ml-3 my-auto inline text-sm font-bold rounded text-white px-1 ",
+                                                        plugin.domain ==
+                                                            "standard" &&
+                                                            "bg-lime-600",
+                                                        plugin.domain ==
+                                                            "community" &&
+                                                            "bg-orange-600",
+                                                        plugin.domain ==
+                                                            "unofficial" &&
+                                                            "bg-blue-600"
+                                                    )}
+                                                >
+                                                    {plugin.domain}
+                                                </span>
+                                            </div>
+                                            <div className="mt-4 text-left text-sm text-gray-800">
+                                                {plugin.description}
+                                            </div>
+                                            <div className="mt-4 flex">
+                                                <Avatar className="w-8 h-8">
+                                                    <AvatarImage
+                                                        className="w-8 h-8"
+                                                        src={`https://github.com/${plugin.owner}.png`}
+                                                    />
+                                                    {/* <AvatarFallback>CN</AvatarFallback> */}
+                                                </Avatar>
+                                                <span className="ml-2 my-auto">
+                                                    <span className="font-medium">
+                                                        {plugin.owner}
+                                                    </span>{" "}
+                                                    <span className="font-light">
+                                                        published on
+                                                    </span>
+                                                    {plugin.repo}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </AccordionTrigger>
+                                    <AccordionContent>
+                                        Yes. It adheres to the WAI-ARIA design
+                                        pattern.
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+
+                            {/* <hr className="w-full mt-5 mb-5" /> */}
                         </li>
                     );
                 })}
