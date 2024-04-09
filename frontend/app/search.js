@@ -15,7 +15,7 @@ export default function Search({ search, setSearch, setDoSearch }) {
                     className="ml-4 w-full bg-stone-200 px-4"
                 ></input>
             </div>
-            <div className="w-32 bg-lime-700 text-white flex">
+            <div className="w-32 bg-lime-700 text-white flex cursor-pointer">
                 <span
                     className="m-auto font-bold"
                     onClick={() => {
