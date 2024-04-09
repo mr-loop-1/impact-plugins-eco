@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Home() {
     const [search, setSearch] = useState("");
-    const [data, setData] = useState([
+    const masterData = [
         {
             id: 1,
             name: "sci-o",
@@ -16,7 +16,7 @@ export default function Home() {
             description: "this is my plugin",
             repo: "https://github.com/mr-loop-1/",
             owner: "mr-loop-1",
-            scope: "@mrloop",
+            scope: "mrloop",
         },
         {
             id: 1,
@@ -25,18 +25,26 @@ export default function Home() {
             description: "this is my plugin",
             repo: "https://github.com/mr-loop-1/",
             owner: "mr-loop-1",
-            scope: "@mrloop",
+            scope: "mrloop",
         },
-    ]);
+    ];
+    const [data, setData] = useState(masterData);
     const [doSearch, setDoSearch] = useState(false);
 
     useEffect(() => {
         try {
-            const paginatedData = [];
+            console.log("ss", search);
+            setData((d) =>
+                masterData.filter((plugin) => {
+                    return new RegExp(search, "i").test(
+                        plugin.scope + " " + plugin.name
+                    );
+                })
+            );
         } catch (err) {
             console.log(err);
         }
-    }, [setDoSearch]);
+    }, [search]);
 
     return (
         <div className="w-full lg:w-[60%] p-5 font-sans">
