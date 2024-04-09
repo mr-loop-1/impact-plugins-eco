@@ -51,10 +51,11 @@ export const getImplicitOutputs = (
             });
         }
     });
-    console.log("🚀 ~ addedOutputs:", addedOutputs);
-    const exhaustiveParams = allParams;
-    console.log("🚀 ~ addedInfo:", addedInfo);
 
+    console.log(
+        "aaaaaaaa",
+        [...outputs].map((id) => allParams.find((param) => param.id == id))
+    );
     return {
         output: [...outputs].map((id) =>
             allParams.find((param) => param.id == id)

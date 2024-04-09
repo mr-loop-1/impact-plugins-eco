@@ -5,6 +5,7 @@ export const compute = (
     allParams,
     allPlugins
 ) => {
+    console.log("🚀 ~ explicitOutputParams:", explicitOutputParams);
     /**
      * ? there are 2 types of errors
      * ? 1. that no plugin is giving the given output param
