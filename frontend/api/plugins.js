@@ -156,7 +156,7 @@ export const getPlugins = () => {
         },
         {
             id: 4,
-            name: "tdp-finder",
+            name: "tdx-finder",
             description:
                 "The TDP Finder model finds the thermal design power (TDP) of a given processor by looking it up in the model datasets. There are scenarios where the lookup can return multiple possible TDP values. In these cases, we return the maximum of the possible values. There are also cases where no TDP can be found for a specific processor. In these cases, we throw an error. The TDP is then used by other plugins to calculate the cpu/energy value.",
             owner: "Green-Software-Foundation",
@@ -250,7 +250,7 @@ export const getPlugins = () => {
         },
         {
             id: 7,
-            name: "tdp-finder",
+            name: "tda-finder",
             description:
                 "The TDP Finder model finds the thermal design power (TDP) of a given processor by looking it up in the model datasets. There are scenarios where the lookup can return multiple possible TDP values. In these cases, we return the maximum of the possible values. There are also cases where no TDP can be found for a specific processor. In these cases, we throw an error. The TDP is then used by other plugins to calculate the cpu/energy value.",
             owner: "Green-Software-Foundation",
@@ -292,8 +292,8 @@ export const getPlugins = () => {
             ],
         },
         {
-            id: 4,
-            name: "tdp-finder",
+            id: 8,
+            name: "asdewq-finder",
             description:
                 "The TDP Finder model finds the thermal design power (TDP) of a given processor by looking it up in the model datasets. There are scenarios where the lookup can return multiple possible TDP values. In these cases, we return the maximum of the possible values. There are also cases where no TDP can be found for a specific processor. In these cases, we throw an error. The TDP is then used by other plugins to calculate the cpu/energy value.",
             owner: "Green-Software-Foundation",
@@ -302,21 +302,21 @@ export const getPlugins = () => {
             domain: "standard",
             inputParams: [
                 {
-                    id: 34,
-                    name: "physical-processor",
-                    description:
-                        "name of the physical processor being used in a specific instance type",
-                    unit: "None",
-                    aggregation: "none",
-                },
-            ],
-            outputParams: [
-                {
                     id: 26,
                     name: "cpu/thermal-design-power",
                     description: "thermal design power for a processor",
                     unit: "kwh",
                     aggregation: "avg",
+                },
+            ],
+            outputParams: [
+                {
+                    id: 33,
+                    name: "memory-available",
+                    description:
+                        "total amount of memory available on a particular resource",
+                    unit: "GB",
+                    aggregation: "none",
                 },
             ],
         },

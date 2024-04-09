@@ -61,6 +61,24 @@ export const PluginParamError = ({ error }) => {
     );
 };
 
+export const PluginInfo = ({ info }) => {
+    return (
+        <div className="bg-blue-600 text-white w-fit px-2 font-sans text-sm">
+            <span>
+                info: using param{" "}
+                <span className="italic font-medium">
+                    {info.sourceInput.name}
+                </span>{" "}
+                from previous plugin{" "}
+                <span className="italic font-medium">
+                    {info.sourcePlugin.name}
+                </span>{" "}
+                in the pipeline.
+            </span>
+        </div>
+    );
+};
+
 export const PluginGenError = ({ errors }) => {
     return (
         <ul className="bg-orange-600 px-2 w-fit font-sans text-sm text-white">

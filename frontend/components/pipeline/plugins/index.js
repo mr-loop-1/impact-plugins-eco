@@ -25,7 +25,11 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import AddPlugin from "./add";
-import { PluginGenError, PluginParamError } from "@/components/messages";
+import {
+    PluginGenError,
+    PluginInfo,
+    PluginParamError,
+} from "@/components/messages";
 import clsx from "clsx";
 import Image from "next/image";
 
@@ -49,6 +53,7 @@ export default function PluginBox({
     allPlugins,
     errors,
     pluginGenErrors,
+    pluginInfo,
 }) {
     return (
         <Card
@@ -192,6 +197,19 @@ export default function PluginBox({
                                             /> */}
                                     </span>
                                 </div>
+                                {pluginInfo.find(
+                                    (info) => info.targetPluginIndex == idx
+                                ) && (
+                                    <div className="mt-1 mb-3">
+                                        <PluginInfo
+                                            info={pluginInfo.find(
+                                                (info) =>
+                                                    info.targetPluginIndex ==
+                                                    idx
+                                            )}
+                                        />
+                                    </div>
+                                )}
                                 {errors.find(
                                     (error) => error.targetPluginIndex == idx
                                 ) && (
