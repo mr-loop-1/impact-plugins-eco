@@ -293,7 +293,7 @@ export const getPlugins = () => {
         },
         {
             id: 8,
-            name: "asdewq-finder",
+            name: "asdewq-findeaaaaaaaaaaaaaaaaaaaaaaaaar",
             description:
                 "The TDP Finder model finds the thermal design power (TDP) of a given processor by looking it up in the model datasets. There are scenarios where the lookup can return multiple possible TDP values. In these cases, we return the maximum of the possible values. There are also cases where no TDP can be found for a specific processor. In these cases, we throw an error. The TDP is then used by other plugins to calculate the cpu/energy value.",
             owner: "Green-Software-Foundation",
@@ -310,6 +310,13 @@ export const getPlugins = () => {
                 },
             ],
             outputParams: [
+                {
+                    id: 26,
+                    name: "cpu/thermal-design-power",
+                    description: "thermal design power for a processor",
+                    unit: "kwh",
+                    aggregation: "avg",
+                },
                 {
                     id: 33,
                     name: "memory-available",

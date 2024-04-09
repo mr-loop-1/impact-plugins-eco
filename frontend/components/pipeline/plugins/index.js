@@ -84,10 +84,10 @@ export default function PluginBox({
                                 <div className="bg-stone-100 py-1 px-1 flex justify-between">
                                     <span className="grow">
                                         <Popover>
-                                            <PopoverTrigger className="hover:bg-gray-50 ">
+                                            <PopoverTrigger className="hover:bg-gray-50 text-left break-all">
                                                 {input.name}
                                             </PopoverTrigger>
-                                            <PopoverContent className="ml-10">
+                                            <PopoverContent className="ml-10 text-left break-all">
                                                 {input.description}
                                             </PopoverContent>
                                         </Popover>
@@ -120,7 +120,7 @@ export default function PluginBox({
                                             remove
                                         </span>
                                     </span>
-                                    <span>
+                                    <span className="shrink-0 ml-2">
                                         <img
                                             className={clsx(
                                                 "inline h-5 w-5 cursor-pointer hover:h-6 hover:w-6 mr-2 text-blue-800",

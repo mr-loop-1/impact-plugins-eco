@@ -30,20 +30,35 @@ export default function Pipeline({ allParams, allPlugins }) {
     console.log("🚀 ~ Pipeline ~ pluginInfo:", pluginInfo);
     useEffect(() => {
         setIsLoading(() => true);
-        changeErrors(() => ({
-            inputErrors: [],
-            pluginErrors: [],
-            outputErrors: [],
-            pluginGenErrors: [],
-        }));
+        changeErrors((impl) => {
+            return {
+                inputErrors: [],
+                pluginErrors: [],
+                outputErrors: [],
+                pluginGenErrors: [],
+            };
+        });
         const res = getImplicitOutputs(userInputs, userPlugins, allParams);
+        console.log("🚀 ~ useEffect ~ res:", res);
         changeImplicitOutputParams((impl) => [...res.output]);
+        console.log("implll", implicitOutputParams);
         changepluginInfo((impl) => [...res.info]);
-        changeErrors((err) => ({
+        // const err = ;
+        changeErrors((impl) => ({
             ...compute(
                 userInputs,
                 userPlugins,
-                explicitOutputParams,
+                explicitOutputParams.filter((explicitOutput) => {
+                    if (
+                        res.output.find(
+                            (implicitOutput) =>
+                                implicitOutput.id == explicitOutput.id
+                        )
+                    ) {
+                        return false;
+                    }
+                    return true;
+                }),
                 allParams,
                 allPlugins
             ),
