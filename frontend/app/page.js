@@ -5,29 +5,11 @@ import Search from "./search";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { getPlugins } from "@/api/plugins";
 
 export default function Home() {
     const [search, setSearch] = useState("");
-    const masterData = [
-        {
-            id: 1,
-            name: "sci-o",
-            domain: "standard",
-            description: "this is my plugin",
-            repo: "https://github.com/mr-loop-1/",
-            owner: "mr-loop-1",
-            scope: "mrloop",
-        },
-        {
-            id: 1,
-            name: "sci-o",
-            domain: "standard",
-            description: "this is my plugin",
-            repo: "https://github.com/mr-loop-1/",
-            owner: "mr-loop-1",
-            scope: "mrloop",
-        },
-    ];
+    const masterData = getPlugins();
     const [data, setData] = useState(masterData);
     const [doSearch, setDoSearch] = useState(false);
 
