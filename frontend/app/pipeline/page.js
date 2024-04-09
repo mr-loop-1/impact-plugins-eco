@@ -22,7 +22,8 @@ export default function Home() {
     allPlugins = getPlugins();
 
     return (
-        <div className="m-5 font-sans">
+        <div className="w-full lg:w-[60%] p-5 font-sans">
+            <hr className="w-full" />
             <PipelineHeader />
             <PipelineHelper allParams={allParams} allPlugins={allPlugins} />
             {/* {isLoading ? (

@@ -53,7 +53,7 @@ export default function Pipeline({ allParams, allPlugins }) {
     }, [userInputs, userPlugins, explicitOutputParams]);
 
     return (
-        <main className="w-full lg:w-[60%] mt-10">
+        <main className=" mt-10">
             <div className="">
                 <InputBox
                     userInputs={userInputs}
