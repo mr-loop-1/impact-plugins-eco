@@ -141,6 +141,7 @@ const checkPluginOutlet = (
                     targetOutputIndex: idx,
                     targetOutputParam: explicitOutputParam,
                 });
+                errorId++;
                 return;
             }
 

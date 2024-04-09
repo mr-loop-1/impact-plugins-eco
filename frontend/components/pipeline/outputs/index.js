@@ -44,7 +44,7 @@ export default function OutputBox({
                 Output Parameters
             </span>
             <div className="mt-3 mb-1 font-medium">Implicit</div>
-            <ul className="bg-stone-100 py-1 px-1">
+            <ul className="bg-stone-100 py-1 px-1 mb-2">
                 {implicitOutputParams.length ? (
                     implicitOutputParams.map((input) => {
                         return (
@@ -64,10 +64,8 @@ export default function OutputBox({
                     <span className="tracking-tight">nothign to show</span>
                 )}
             </ul>
-            {explicitOutputParams.length ? (
+            {explicitOutputParams.length != 0 && (
                 <div className="mt-3 mb-1 font-medium">Desired</div>
-            ) : (
-                <></>
             )}
             <ul className="bg-stone-100 py-1 px-1">
                 {explicitOutputParams.map((input, idx) => {
