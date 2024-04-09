@@ -41,6 +41,15 @@ export default function Navbar() {
                     <Link
                         className={clsx(
                             "font-semibold ",
+                            pathname == "/pipeline" && "underline"
+                        )}
+                        href="/pipeline"
+                    >
+                        <span className="">pipeline</span>
+                    </Link>
+                    <Link
+                        className={clsx(
+                            "ml-4 font-semibold ",
                             pathname == "/" && "underline"
                         )}
                         href="/"
@@ -50,11 +59,11 @@ export default function Navbar() {
                     <Link
                         className={clsx(
                             "ml-4 font-semibold ",
-                            pathname == "/pipeline" && "underline"
+                            pathname == "/params" && "underline"
                         )}
-                        href="/pipeline"
+                        href="/params"
                     >
-                        <span className="">pipeline</span>
+                        <span className="">params</span>
                     </Link>
                 </div>
             </nav>
