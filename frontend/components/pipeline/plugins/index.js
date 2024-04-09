@@ -25,7 +25,11 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import AddPlugin from "./add";
-import { PluginGenError, PluginParamError } from "@/components/messages";
+import {
+    PluginGenError,
+    PluginInfo,
+    PluginParamError,
+} from "@/components/messages";
 import clsx from "clsx";
 import Image from "next/image";
 
@@ -49,10 +53,8 @@ export default function PluginBox({
     allPlugins,
     errors,
     pluginGenErrors,
+    pluginInfo,
 }) {
-    const [open, setOpen] = useState(false);
-    const [value, setValue] = useState("");
-
     return (
         <Card
             className={clsx(
@@ -60,15 +62,18 @@ export default function PluginBox({
                 errors.length && "shadow-red-600 shadow-sm border-red-300"
             )}
         >
-            <span className="font-bold text-xl tracking-tight">
-                pipeline: ordered
-            </span>
+            <span className="font-bold text-xl tracking-tight">pipeline</span>
             <ul className="mt-4 ">
                 {userPlugins.length ? (
                     userPlugins.map((input, idx, arr) => {
                         return (
                             <li>
-                                <div className={clsx(idx == 0 && "hidden")}>
+                                <div
+                                    className={clsx(
+                                        "mb-2",
+                                        idx == 0 && "hidden"
+                                    )}
+                                >
                                     <Image
                                         src="pip.svg"
                                         className="mx-auto"
@@ -76,90 +81,148 @@ export default function PluginBox({
                                         width={20}
                                     />
                                 </div>
-                                <div className="bg-stone-100 py-1 px-1">
-                                    <ArrowUpIcon
-                                        className={clsx(
-                                            "inline h-5 w-5 cursor-pointer hover:h-7 hover:w-7 mr-3",
-                                            idx == 0 && "hidden"
-                                        )}
-                                        onClick={() => {
-                                            changeUserPlugins(
-                                                (currentPlugins) => [
-                                                    ...swapAdjacent(
-                                                        currentPlugins,
-                                                        idx,
-                                                        "back"
-                                                    ),
-                                                ]
-                                            );
-                                        }}
-                                    />
-                                    <ArrowDownIcon
-                                        className={clsx(
-                                            "inline h-5 w-5 cursor-pointer hover:h-7 hover:w-7 mr-3",
-                                            idx == arr.length - 1 && "hidden"
-                                        )}
-                                        onClick={() => {
-                                            changeUserPlugins(
-                                                (currentPlugins) => [
-                                                    ...swapAdjacent(
-                                                        currentPlugins,
-                                                        idx,
-                                                        "front"
-                                                    ),
-                                                ]
-                                            );
-                                        }}
-                                    />
-                                    <Popover>
-                                        <PopoverTrigger className="hover:bg-gray-50 ">
-                                            {input.name}
-                                        </PopoverTrigger>
-                                        <PopoverContent className="ml-10">
-                                            {input.description}
-                                        </PopoverContent>
-                                    </Popover>
-                                    <span
-                                        className={clsx(
-                                            "ml-3 inline text-sm font-bold rounded text-white px-1 ",
-                                            input.domain == "standard" &&
-                                                "bg-lime-600",
-                                            input.domain == "universe" &&
-                                                "bg-orange-600",
-                                            input.domain == "unofficial" &&
-                                                "bg-blue-600"
-                                        )}
-                                    >
-                                        {input.domain}
+                                <div className="bg-stone-100 py-1 px-1 flex justify-between">
+                                    <span className="grow">
+                                        <Popover>
+                                            <PopoverTrigger className="hover:bg-gray-50 ">
+                                                {input.name}
+                                            </PopoverTrigger>
+                                            <PopoverContent className="ml-10">
+                                                {input.description}
+                                            </PopoverContent>
+                                        </Popover>
+                                        <span
+                                            className={clsx(
+                                                "ml-3 inline text-sm font-bold rounded text-white px-1 ",
+                                                input.domain == "standard" &&
+                                                    "bg-lime-600",
+                                                input.domain == "universe" &&
+                                                    "bg-orange-600",
+                                                input.domain == "unofficial" &&
+                                                    "bg-blue-600"
+                                            )}
+                                        >
+                                            {input.domain}
+                                        </span>
+                                        <span
+                                            className="ml-3 inline text-sm font-medium text-red-600 cursor-pointer underline"
+                                            onClick={() => {
+                                                changeUserPlugins(
+                                                    (curentInputs) =>
+                                                        curentInputs.filter(
+                                                            (inputItem) =>
+                                                                inputItem.id !=
+                                                                input.id
+                                                        )
+                                                );
+                                            }}
+                                        >
+                                            remove
+                                        </span>
                                     </span>
-                                    <span
-                                        className="ml-3 inline text-sm font-medium text-red-600 cursor-pointer underline"
-                                        onClick={() => {
-                                            changeUserPlugins((curentInputs) =>
-                                                curentInputs.filter(
-                                                    (inputItem) =>
-                                                        inputItem.id != input.id
-                                                )
-                                            );
-                                        }}
-                                    >
-                                        remove
-                                    </span>
-                                    {errors.find(
-                                        (error) =>
-                                            error.targetPluginIndex == idx
-                                    ) && (
-                                        <div className="mt-1 mb-3">
-                                            <PluginParamError
-                                                error={errors.find(
-                                                    (error) =>
-                                                        error.targetPluginIndex ==
-                                                        idx
+                                    <span>
+                                        <img
+                                            className={clsx(
+                                                "inline h-5 w-5 cursor-pointer hover:h-6 hover:w-6 mr-2 text-blue-800",
+                                                idx == 0 && "hidden"
+                                            )}
+                                            onClick={() => {
+                                                changeUserPlugins(
+                                                    (currentPlugins) => [
+                                                        ...swapAdjacent(
+                                                            currentPlugins,
+                                                            idx,
+                                                            "back"
+                                                        ),
+                                                    ]
+                                                );
+                                            }}
+                                            src="/up.svg"
+                                        />
+                                        <img
+                                            className={clsx(
+                                                "inline h-5 w-5 cursor-pointer mr-1 text-blue-800",
+                                                idx != arr.length - 1 &&
+                                                    "hover:h-6 hover:w-6 ",
+                                                idx == arr.length - 1 &&
+                                                    "opacity-0"
+                                            )}
+                                            onClick={() => {
+                                                changeUserPlugins(
+                                                    (currentPlugins) => [
+                                                        ...swapAdjacent(
+                                                            currentPlugins,
+                                                            idx,
+                                                            "front"
+                                                        ),
+                                                    ]
+                                                );
+                                            }}
+                                            src="/down.svg"
+                                        />
+                                        {/* <ArrowUpIcon
+                                                className={clsx(
+                                                    "inline h-5 w-5 cursor-pointer hover:h-7 hover:w-7 mr-3 text-blue-800",
+                                                    idx == 0 && "hidden"
                                                 )}
+                                                onClick={() => {
+                                                    changeUserPlugins(
+                                                        (currentPlugins) => [
+                                                            ...swapAdjacent(
+                                                                currentPlugins,
+                                                                idx,
+                                                                "back"
+                                                            ),
+                                                        ]
+                                                    );
+                                                }}
                                             />
-                                        </div>
-                                    )}
+                                            <ArrowDownIcon
+                                                className={clsx(
+                                                    "inline h-5 w-5 cursor-pointer hover:h-7 hover:w-7 mr-3 text-blue-800 ",
+                                                    idx == arr.length - 1 &&
+                                                        "hidden"
+                                                )}
+                                                onClick={() => {
+                                                    changeUserPlugins(
+                                                        (currentPlugins) => [
+                                                            ...swapAdjacent(
+                                                                currentPlugins,
+                                                                idx,
+                                                                "front"
+                                                            ),
+                                                        ]
+                                                    );
+                                                }}
+                                            /> */}
+                                    </span>
                                 </div>
+                                {pluginInfo.find(
+                                    (info) => info.targetPluginIndex == idx
+                                ) && (
+                                    <div className="mt-1 mb-3">
+                                        <PluginInfo
+                                            info={pluginInfo.find(
+                                                (info) =>
+                                                    info.targetPluginIndex ==
+                                                    idx
+                                            )}
+                                        />
+                                    </div>
+                                )}
+                                {errors.find(
+                                    (error) => error.targetPluginIndex == idx
+                                ) && (
+                                    <div className="mt-1 mb-3">
+                                        <PluginParamError
+                                            error={errors.find(
+                                                (error) =>
+                                                    error.targetPluginIndex ==
+                                                    idx
+                                            )}
+                                        />
+                                    </div>
+                                )}
                             </li>
                         );
                     })

@@ -26,6 +26,8 @@ export default function Pipeline({ allParams, allPlugins }) {
         pluginGenErrors: [],
         outputErrors: [],
     });
+    const [pluginInfo, changepluginInfo] = useState([]);
+    console.log("🚀 ~ Pipeline ~ pluginInfo:", pluginInfo);
     useEffect(() => {
         setIsLoading(() => true);
         changeErrors(() => ({
@@ -34,9 +36,9 @@ export default function Pipeline({ allParams, allPlugins }) {
             outputErrors: [],
             pluginGenErrors: [],
         }));
-        changeImplicitOutputParams((impl) => [
-            ...getImplicitOutputs(userInputs, userPlugins, allParams),
-        ]);
+        const res = getImplicitOutputs(userInputs, userPlugins, allParams);
+        changeImplicitOutputParams((impl) => [...res.output]);
+        changepluginInfo((impl) => [...res.info]);
         changeErrors((err) => ({
             ...compute(
                 userInputs,
@@ -69,6 +71,7 @@ export default function Pipeline({ allParams, allPlugins }) {
                     allPlugins={allPlugins}
                     errors={errors.pluginErrors}
                     pluginGenErrors={errors.pluginGenErrors}
+                    pluginInfo={pluginInfo}
                 />
                 <OutputBox
                     implicitOutputParams={implicitOutputParams}
