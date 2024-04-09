@@ -32,6 +32,7 @@ import {
 } from "@/components/messages";
 import clsx from "clsx";
 import Image from "next/image";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 function swapAdjacent(array, index, flow) {
     if (flow === "back" && index > 0) {
@@ -83,6 +84,13 @@ export default function PluginBox({
                                 </div>
                                 <div className="bg-stone-100 py-1 px-1 flex justify-between">
                                     <span className="grow">
+                                        <Avatar className="w-4 h-4 mr-2 inline">
+                                            <AvatarImage
+                                                className="w-4 h-4 inline"
+                                                src={`https://github.com/${input.owner}.png`}
+                                            />
+                                            {/* <AvatarFallback>CN</AvatarFallback> */}
+                                        </Avatar>
                                         <Popover>
                                             <PopoverTrigger className="hover:bg-gray-50 text-left break-all">
                                                 {input.name}

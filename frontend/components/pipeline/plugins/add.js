@@ -61,7 +61,9 @@ export default function AddPlugin({ changeUserPlugins, leftPlugins }) {
                                 <CommandItem
                                     className="font-medium"
                                     key={framework.id}
-                                    value={framework.name}
+                                    value={
+                                        framework.name + " " + framework.scope
+                                    }
                                     onSelect={(currentValue) => {
                                         setValue(
                                             currentValue === value

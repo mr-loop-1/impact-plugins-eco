@@ -68,6 +68,9 @@ export default function AddOutput({ changeExplicitOutputParams, leftParams }) {
                                     }}
                                 >
                                     {framework.name}
+                                    <span className="ml-2 text-xs font-semibold tracking-tight text-gray-500">
+                                        {framework.scope}
+                                    </span>
                                 </CommandItem>
                             ))}
                         </CommandList>

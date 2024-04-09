@@ -50,13 +50,16 @@ export default function OutputBox({
                         return (
                             <li key={input.id} className="">
                                 <Popover>
-                                    <PopoverTrigger className="hover:bg-gray-50 text-left break-all">
+                                    <PopoverTrigger className="hover:bg-gray-50 text-left break-all font-mono">
                                         - {input.name}
                                     </PopoverTrigger>
                                     <PopoverContent className="ml-10 text-left break-all">
                                         {input.description}
                                     </PopoverContent>
                                 </Popover>
+                                <span className="ml-2 text-xs font-semibold tracking-tight text-gray-500">
+                                    {input.scope}
+                                </span>
                             </li>
                         );
                     })
@@ -72,13 +75,16 @@ export default function OutputBox({
                     return (
                         <li>
                             <Popover>
-                                <PopoverTrigger className="hover:bg-gray-50">
+                                <PopoverTrigger className="hover:bg-gray-50  font-mono">
                                     - {input.name}
                                 </PopoverTrigger>
                                 <PopoverContent className="ml-10">
                                     {input.description}
                                 </PopoverContent>
                             </Popover>
+                            <span className="ml-2 text-xs font-semibold tracking-tight text-gray-500">
+                                {input.scope}
+                            </span>
                             <span
                                 className="ml-3 inline text-sm font-medium text-red-600 cursor-pointer underline"
                                 onClick={() => {

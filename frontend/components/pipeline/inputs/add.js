@@ -63,6 +63,9 @@ export default function AddInputParam({ changeUserInputs, leftInputs }) {
                                     }}
                                 >
                                     {framework.name}
+                                    <span className="ml-2 text-xs font-semibold tracking-tight text-gray-500">
+                                        {framework.scope}
+                                    </span>
                                 </CommandItem>
                             ))}
                         </CommandList>
