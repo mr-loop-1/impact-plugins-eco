@@ -9,7 +9,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 2,
@@ -20,7 +20,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 3,
@@ -31,7 +31,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 4,
@@ -42,7 +42,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 5,
@@ -53,7 +53,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 6,
@@ -64,7 +64,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 7,
@@ -75,7 +75,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 8,
@@ -86,7 +86,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 9,
@@ -97,7 +97,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 10,
@@ -108,7 +108,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 11,
@@ -119,7 +119,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 12,
@@ -131,7 +131,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 13,
@@ -143,7 +143,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 14,
@@ -154,7 +154,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 15,
@@ -165,7 +165,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 16,
@@ -177,7 +177,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 17,
@@ -189,7 +189,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 18,
@@ -200,7 +200,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 19,
@@ -211,7 +211,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 20,
@@ -222,7 +222,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 21,
@@ -234,7 +234,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
 
         {
@@ -246,7 +246,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 24,
@@ -257,7 +257,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 25,
@@ -268,7 +268,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 26,
@@ -279,7 +279,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 27,
@@ -290,7 +290,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 28,
@@ -301,7 +301,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 29,
@@ -312,10 +312,10 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
-            id: 20,
+            id: 30,
             name: "resources-total",
             description: "total resources available",
             unit: "count",
@@ -323,7 +323,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 31,
@@ -334,7 +334,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 32,
@@ -346,7 +346,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 33,
@@ -358,7 +358,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 34,
@@ -370,7 +370,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 35,
@@ -381,7 +381,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 36,
@@ -392,7 +392,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 37,
@@ -403,7 +403,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 38,
@@ -414,7 +414,7 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
         {
             id: 39,
@@ -425,7 +425,115 @@ export const getParams = () => {
             domain: "standard",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
+        },
+        {
+            id: 40,
+            name: "memory/utilization",
+            description:
+                "percentage of the total available memory being used in the input period",
+            unit: "percentage",
+            domain: "unofficial",
+            owner: "Green-Software-Foundation",
+            scope: "@grnsft",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
+        },
+        {
+            id: 41,
+            name: "memory/capacity",
+            description: "the total amount of memory available, in GB",
+            unit: "GB",
+            domain: "unofficial",
+            owner: "Green-Software-Foundation",
+            scope: "@grnsft",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
+        },
+        {
+            id: 42,
+            name: "network/data-in",
+            description: "inbound data in GB",
+            unit: "GB",
+            domain: "unofficial",
+            owner: "Green-Software-Foundation",
+            scope: "@grnsft",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
+        },
+        {
+            id: 43,
+            name: "network/data-out",
+            description: "outbound data in GB",
+            unit: "GB",
+            domain: "unofficial",
+            owner: "Green-Software-Foundation",
+            scope: "@grnsft",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
+        },
+        {
+            id: 44,
+            name: "sci",
+            description:
+                "carbon expressed in terms of the given functional unit",
+            unit: "none",
+            domain: "unofficial",
+            owner: "Green-Software-Foundation",
+            scope: "@grnsft",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
+        },
+        {
+            id: 45,
+            name: "memory/used",
+            description:
+                "Amount of memory being used by your application, in GB. Calculated as the difference between memory/capacity/GB and memory/available/GB",
+            unit: "GB",
+            domain: "unofficial",
+            owner: "Green-Software-Foundation",
+            scope: "@azure",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
+        },
+        {
+            id: 46,
+            name: "cpu/expected-lifespan",
+            description: "the lifespan of the component, in seconds",
+            unit: "seconds",
+            domain: "unofficial",
+            owner: "Boavizta",
+            scope: "@boavizta",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
+        },
+        {
+            id: 47,
+            name: "instance-type",
+            description:
+                "the name of the specific instance, required for BoaviztaCloudOutput",
+            unit: "None",
+            aggregation: "none",
+            domain: "unofficial",
+            owner: "Boavizta",
+            scope: "@boavizta",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
+        },
+        {
+            id: 48,
+            name: "provider",
+            description:
+                "the name of cloud provider (required for BoaviztaCloudOutput)",
+            unit: "None",
+            aggregation: "none",
+            domain: "unofficial",
+            owner: "Boavizta",
+            scope: "@boavizta",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
+        },
+        {
+            id: 49,
+            name: "network/data",
+            description:
+                "the number of bytes transferred or network/data if the number is in GB",
+            unit: "bytes",
+            domain: "unofficial",
+            owner: "thegreenwebfoundation",
+            scope: "@thegreenwebfoundation",
+            repo: "https://github.com/Green-Software-Foundation/if/blob/main/src/config/params.ts",
         },
     ];
 };
