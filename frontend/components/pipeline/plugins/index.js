@@ -87,7 +87,7 @@ export default function PluginBox({
                                             <PopoverTrigger className="hover:bg-gray-50 text-left break-all">
                                                 {input.name}
                                             </PopoverTrigger>
-                                            <PopoverContent className="ml-10">
+                                            <PopoverContent className="ml-10 text-left break-all">
                                                 {input.description}
                                             </PopoverContent>
                                         </Popover>

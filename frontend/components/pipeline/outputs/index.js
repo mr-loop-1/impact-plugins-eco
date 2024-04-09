@@ -50,10 +50,10 @@ export default function OutputBox({
                         return (
                             <li key={input.id} className="">
                                 <Popover>
-                                    <PopoverTrigger className="hover:bg-gray-50">
+                                    <PopoverTrigger className="hover:bg-gray-50 text-left break-all">
                                         - {input.name}
                                     </PopoverTrigger>
-                                    <PopoverContent className="ml-10">
+                                    <PopoverContent className="ml-10 text-left break-all">
                                         {input.description}
                                     </PopoverContent>
                                 </Popover>

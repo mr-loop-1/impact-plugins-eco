@@ -32,10 +32,10 @@ export default function InputBox({
                         return (
                             <li key={userInput.id}>
                                 <Popover>
-                                    <PopoverTrigger className="hover:bg-gray-50">
+                                    <PopoverTrigger className="hover:bg-gray-50 text-left break-all">
                                         - {userInput.name}
                                     </PopoverTrigger>
-                                    <PopoverContent className="ml-10">
+                                    <PopoverContent className="ml-10 text-left break-all">
                                         {userInput.description}
                                     </PopoverContent>
                                 </Popover>
