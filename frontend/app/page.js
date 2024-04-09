@@ -57,7 +57,7 @@ export default function Home() {
                                             "ml-3 my-auto inline text-sm font-bold rounded text-white px-1 ",
                                             plugin.domain == "standard" &&
                                                 "bg-lime-600",
-                                            plugin.domain == "universe" &&
+                                            plugin.domain == "community" &&
                                                 "bg-orange-600",
                                             plugin.domain == "unofficial" &&
                                                 "bg-blue-600"

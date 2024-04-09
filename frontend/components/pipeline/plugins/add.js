@@ -28,6 +28,8 @@ import {
 } from "@/components/ui/popover";
 import { getParams } from "@/api/params";
 import { getPlugins } from "@/api/plugins";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import clsx from "clsx";
 
 export default function AddPlugin({ changeUserPlugins, leftPlugins }) {
     const [open, setOpen] = useState(false);
@@ -73,7 +75,30 @@ export default function AddPlugin({ changeUserPlugins, leftPlugins }) {
                                         setOpen(false);
                                     }}
                                 >
+                                    <Avatar className="w-4 h-4 mr-2">
+                                        <AvatarImage
+                                            className="w-4 h-4"
+                                            src={`https://github.com/${framework.owner}.png`}
+                                        />
+                                        {/* <AvatarFallback>CN</AvatarFallback> */}
+                                    </Avatar>
                                     {framework.name}
+                                    <span className="ml-2 text-xs font-semibold tracking-tight text-gray-500">
+                                        {framework.scope}
+                                    </span>
+                                    <div
+                                        className={clsx(
+                                            "ml-2 inline text-xs font-semibold tracking-tight rounded px-1 border-2",
+                                            framework.domain == "standard" &&
+                                                "text-lime-600 border-lime-600 border",
+                                            framework.domain == "community" &&
+                                                "text-orange-600 border-orange-600",
+                                            framework.domain == "unofficial" &&
+                                                "text-blue-600 border-blue-600"
+                                        )}
+                                    >
+                                        {framework.domain}
+                                    </div>
                                 </CommandItem>
                             ))}
                         </CommandList>

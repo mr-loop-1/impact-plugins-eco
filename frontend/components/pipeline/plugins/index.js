@@ -91,12 +91,15 @@ export default function PluginBox({
                                                 {input.description}
                                             </PopoverContent>
                                         </Popover>
+                                        <span className="ml-2 text-xs font-semibold tracking-tight text-gray-500">
+                                            {input.scope}
+                                        </span>
                                         <span
                                             className={clsx(
                                                 "ml-3 inline text-sm font-bold rounded text-white px-1 ",
                                                 input.domain == "standard" &&
                                                     "bg-lime-600",
-                                                input.domain == "universe" &&
+                                                input.domain == "community" &&
                                                     "bg-orange-600",
                                                 input.domain == "unofficial" &&
                                                     "bg-blue-600"
