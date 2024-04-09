@@ -21,6 +21,7 @@ import {
 import AddOutput from "./add";
 import clsx from "clsx";
 import { OutputError } from "@/components/messages";
+import Link from "next/link";
 
 export default function OutputBox({
     implicitOutputParams,
@@ -53,8 +54,12 @@ export default function OutputBox({
                                     <PopoverTrigger className="hover:bg-gray-50 text-left break-all font-mono">
                                         - {input.name}
                                     </PopoverTrigger>
-                                    <PopoverContent className="ml-10 text-left break-all">
-                                        {input.description}
+                                    <PopoverContent className="ml-10 text-left break-all underline">
+                                        <Link
+                                            href={`http://localhost:3000/params#${input.id}`}
+                                        >
+                                            Click for Parameter Details
+                                        </Link>
                                     </PopoverContent>
                                 </Popover>
                                 <span className="ml-2 text-xs font-semibold tracking-tight text-gray-500">

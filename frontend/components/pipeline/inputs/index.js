@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/popover";
 import { InputParamError } from "@/components/messages";
 import clsx from "clsx";
+import Link from "next/link";
 
 export default function InputBox({
     userInputs,
@@ -35,8 +36,12 @@ export default function InputBox({
                                     <PopoverTrigger className="hover:bg-gray-50 text-left break-all">
                                         - {userInput.name}
                                     </PopoverTrigger>
-                                    <PopoverContent className="ml-10 text-left break-all">
-                                        {userInput.description}
+                                    <PopoverContent className="ml-10 text-left break-all underline">
+                                        <Link
+                                            href={`http://localhost:3000/params#${userInput.id}`}
+                                        >
+                                            Click for Parameter Details
+                                        </Link>
                                     </PopoverContent>
                                 </Popover>
                                 <span

@@ -59,7 +59,7 @@ export default function Home() {
                                                         {plugin.name}
                                                     </span>
                                                     <span className="ml-2 text-sm text-gray-600 tracking-tight">
-                                                        @{plugin.scope}
+                                                        {plugin.scope}
                                                     </span>
                                                 </span>
                                                 <span

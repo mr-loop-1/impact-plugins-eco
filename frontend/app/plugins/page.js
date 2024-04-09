@@ -59,7 +59,7 @@ export default function Home() {
                                                         {plugin.name}
                                                     </span>
                                                     <span className="ml-2 text-sm text-gray-600 tracking-tight">
-                                                        @{plugin.scope}
+                                                        {plugin.scope}
                                                     </span>
                                                 </span>
                                                 <span
@@ -110,8 +110,38 @@ export default function Home() {
                                         </div>
                                     </AccordionTrigger>
                                     <AccordionContent className="mt-0">
-                                        Yes. It adheres to the WAI-ARIA design
-                                        pattern.
+                                        <div className="">
+                                            Input parameters:
+                                            <br />
+                                            {plugin.inputParams.map((inp) => {
+                                                return (
+                                                    <span className="hover:underline font-mono">
+                                                        <Link
+                                                            href={`http://localhost:3000/params#${inp.id}`}
+                                                        >
+                                                            {inp.name},&nbsp;
+                                                        </Link>
+                                                    </span>
+                                                );
+                                            })}
+                                        </div>
+                                        <div className="mt-3">
+                                            Output parameters:
+                                            <br />
+                                            {plugin.outputParams.map((inp) => {
+                                                return (
+                                                    <span className=" font-mono">
+                                                        <Link
+                                                            className="hover:underline"
+                                                            href={`http://localhost:3000/params#${inp.id}`}
+                                                        >
+                                                            {inp.name}
+                                                        </Link>
+                                                        ,&nbsp;
+                                                    </span>
+                                                );
+                                            })}
+                                        </div>
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>

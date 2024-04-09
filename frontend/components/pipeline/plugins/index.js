@@ -33,6 +33,7 @@ import {
 import clsx from "clsx";
 import Image from "next/image";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import Link from "next/link";
 
 function swapAdjacent(array, index, flow) {
     if (flow === "back" && index > 0) {
@@ -95,8 +96,12 @@ export default function PluginBox({
                                             <PopoverTrigger className="hover:bg-gray-50 text-left break-all">
                                                 {input.name}
                                             </PopoverTrigger>
-                                            <PopoverContent className="ml-10 text-left break-all">
-                                                {input.description}
+                                            <PopoverContent className="ml-10 underline text-left break-all">
+                                                <Link
+                                                    href={`http://localhost:3000/plugins#${input.id}`}
+                                                >
+                                                    Click for Plugin Details
+                                                </Link>
                                             </PopoverContent>
                                         </Popover>
                                         <span className="ml-2 text-xs font-semibold tracking-tight text-gray-500">

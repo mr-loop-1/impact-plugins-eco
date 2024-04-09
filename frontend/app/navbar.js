@@ -50,9 +50,9 @@ export default function Navbar() {
                     <Link
                         className={clsx(
                             "ml-4 font-semibold ",
-                            pathname == "/" && "underline"
+                            pathname == "/plugins" && "underline"
                         )}
-                        href="/"
+                        href="/plugins"
                     >
                         <span className="">plugins</span>
                     </Link>
