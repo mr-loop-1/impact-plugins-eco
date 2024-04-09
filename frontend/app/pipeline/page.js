@@ -5,8 +5,10 @@ import PipelineHelper from "@/components/pipeline/page";
 import { getPlugins } from "@/api/plugins";
 import { getParams } from "@/api/params";
 import PipelineHeader from "./header";
+import { redirect } from "next/navigation";
 
 export default function Home() {
+    redirect("/");
     const [isLoading, setIsLoading] = useState(true);
 
     let allParams, allPlugins;

@@ -41,9 +41,10 @@ export default function Navbar() {
                     <Link
                         className={clsx(
                             "font-semibold ",
-                            pathname == "/pipeline" && "underline"
+                            pathname == "/pipeline" ||
+                                (pathname == "/" && "underline")
                         )}
-                        href="/pipeline"
+                        href="/"
                     >
                         <span className="">pipeline</span>
                     </Link>
