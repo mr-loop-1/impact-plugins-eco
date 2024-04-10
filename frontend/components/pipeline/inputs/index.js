@@ -38,7 +38,7 @@ export default function InputBox({
                                     </PopoverTrigger>
                                     <PopoverContent className="ml-10 text-left break-all underline">
                                         <Link
-                                            href={`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/params#${userInput.id}`}
+                                            href={`${process.env.NEXT_PUBLIC_SITE_URL}/params#${userInput.id}`}
                                         >
                                             Click for Parameter Details
                                         </Link>

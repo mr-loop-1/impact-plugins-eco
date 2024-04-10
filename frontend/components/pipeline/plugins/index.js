@@ -98,7 +98,7 @@ export default function PluginBox({
                                             </PopoverTrigger>
                                             <PopoverContent className="ml-10 underline text-left break-all">
                                                 <Link
-                                                    href={`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/plugins#${input.id}`}
+                                                    href={`${process.env.NEXT_PUBLIC_SITE_URL}/plugins#${input.id}`}
                                                 >
                                                     Click for Plugin Details
                                                 </Link>

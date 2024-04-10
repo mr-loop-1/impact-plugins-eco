@@ -116,7 +116,7 @@ export default function Home() {
                                                 return (
                                                     <span className="hover:underline font-mono">
                                                         <Link
-                                                            href={`https://${process.env.NEXT_PUBLIC_VERCEL_URL}#${inp.id}`}
+                                                            href={`${process.env.NEXT_PUBLIC_SITE_URL}#${inp.id}`}
                                                         >
                                                             {inp.name},&nbsp;
                                                         </Link>
@@ -132,7 +132,7 @@ export default function Home() {
                                                     <span className=" font-mono">
                                                         <Link
                                                             className="hover:underline"
-                                                            href={`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/params#${inp.id}`}
+                                                            href={`${process.env.NEXT_PUBLIC_SITE_URL}/params#${inp.id}`}
                                                         >
                                                             {inp.name}
                                                         </Link>
