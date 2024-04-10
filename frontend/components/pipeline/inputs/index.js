@@ -33,17 +33,20 @@ export default function InputBox({
                         return (
                             <li key={userInput.id}>
                                 <Popover>
-                                    <PopoverTrigger className="hover:bg-gray-50 text-left break-all">
+                                    <PopoverTrigger className="hover:bg-gray-50 text-left break-all  font-mono">
                                         - {userInput.name}
                                     </PopoverTrigger>
                                     <PopoverContent className="ml-10 text-left break-all underline">
                                         <Link
-                                            href={`${process.env.VERCEL_URL}/params#${userInput.id}`}
+                                            href={`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/params#${userInput.id}`}
                                         >
                                             Click for Parameter Details
                                         </Link>
                                     </PopoverContent>
                                 </Popover>
+                                <span className="ml-2 text-xs font-semibold tracking-tight text-gray-500">
+                                    {userInput.scope}
+                                </span>
                                 <span
                                     className="ml-3 inline text-sm font-medium text-red-600 cursor-pointer underline"
                                     onClick={() => {
