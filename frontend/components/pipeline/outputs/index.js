@@ -56,7 +56,7 @@ export default function OutputBox({
                                     </PopoverTrigger>
                                     <PopoverContent className="ml-10 text-left break-all underline">
                                         <Link
-                                            href={`http://localhost:3000/params#${input.id}`}
+                                            href={`${process.env.VERCEL_URL}/params#${input.id}`}
                                         >
                                             Click for Parameter Details
                                         </Link>

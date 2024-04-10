@@ -13,6 +13,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import Link from "next/link";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 
 export default function Home() {
     const [search, setSearch] = useState("");
@@ -133,7 +134,7 @@ export default function Home() {
                                                     <span className=" font-mono">
                                                         <Link
                                                             className="hover:underline"
-                                                            href={`http://localhost:3000/params#${inp.id}`}
+                                                            href={`${process.env.VERCEL_URL}/params#${inp.id}`}
                                                         >
                                                             {inp.name}
                                                         </Link>
@@ -141,6 +142,16 @@ export default function Home() {
                                                     </span>
                                                 );
                                             })}
+                                        </div>
+                                        <div className="mt-3">
+                                            <Link
+                                                className="hover:underline text-blue-600 font-bold"
+                                                href={plugin.repo}
+                                                target="_blank"
+                                            >
+                                                implementation
+                                                <ArrowTopRightIcon className="inline w-5 h-5" />
+                                            </Link>
                                         </div>
                                     </AccordionContent>
                                 </AccordionItem>

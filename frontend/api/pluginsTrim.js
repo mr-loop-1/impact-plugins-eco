@@ -102,7 +102,7 @@ export const getPluginsTrimmed = () => {
             domain: "unofficial",
             owner: "Green-Software-Foundation",
             scope: "@grnsft",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if-unofficial-plugins",
             description:
                 "The Azure importer plugin allows you to provide some basic details about an Azure virtual machine and automatically populate your manifest with usage metrics that can then be passed along a plugin pipeline to calculate energy and carbon impacts.",
             inputParams: [],
@@ -114,7 +114,7 @@ export const getPluginsTrimmed = () => {
             domain: "unofficial",
             owner: "Boavizta",
             scope: "@boavizta",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if-unofficial-plugins",
             description:
                 "Boavizta is an environmental impact calculator that exposes an API we use in IF to retrieve energy and embodied carbon estimates.",
             inputParams: [19, 2, 46, 3, 14, 24],
@@ -126,7 +126,7 @@ export const getPluginsTrimmed = () => {
             domain: "unofficial",
             owner: "Boavizta",
             scope: "@boavizta",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if-unofficial-plugins",
             description:
                 "Boavizta is an environmental impact calculator that exposes an API we use in IF to retrieve energy and embodied carbon estimates.",
             inputParams: [19, 2, 46, 3, 14, 24, 47, 48],
@@ -138,7 +138,7 @@ export const getPluginsTrimmed = () => {
             domain: "unofficial",
             owner: "cloud-carbon-footprint",
             scope: "@ccf",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if-unofficial-plugins",
             description:
                 "Cloud Carbon Footprint is an open source tool that provides visibility and tooling to measure, monitor and reduce your cloud carbon emissions. ",
             inputParams: [3, 16, 21],
@@ -150,7 +150,7 @@ export const getPluginsTrimmed = () => {
             domain: "unofficial",
             owner: "thegreenwebfoundation",
             scope: "@thegreenwebfoundation",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if-unofficial-plugins",
             description:
                 "The CO2JS Framework is a collection of plugins that calculate the carbon emissions of a website based on different parameters.",
             inputParams: [49],
@@ -162,7 +162,7 @@ export const getPluginsTrimmed = () => {
             domain: "unofficial",
             owner: "teads",
             scope: "@teads",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if-unofficial-plugins",
             description:
                 "Teads Engineering Team built a plugin for estimating AWS instances energy usage. This plugin creates a power curve on a correlation to SPEC Power database.",
             inputParams: [16, 3],
@@ -174,7 +174,7 @@ export const getPluginsTrimmed = () => {
             domain: "unofficial",
             owner: "teads",
             scope: "@teads",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if-unofficial-plugins",
             description:
                 "Teads Engineering team has built a plugin that is capable of estimating CPU usages across varying type of CPUs using a curve commonly known as Teads Curve.",
             inputParams: [3, 26],
@@ -186,7 +186,7 @@ export const getPluginsTrimmed = () => {
             domain: "unofficial",
             owner: "WattTime",
             scope: "@watttime",
-            repo: "https://github.com/Green-Software-Foundation/if-plugins",
+            repo: "https://github.com/Green-Software-Foundation/if-unofficial-plugins",
             description:
                 "WattTime technology—based on real-time grid data, cutting-edge algorithms, and machine learning—provides first-of-its-kind insight into your local electricity grid’s marginal emissions rate. ",
             inputParams: [17, 39],
