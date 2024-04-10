@@ -49,7 +49,7 @@ export const getPluginsTrimmed = () => {
             outputParams: [1, 44],
         },
         {
-            id: 4,
+            id: 5,
             name: "sci-e",
             domain: "standard",
             owner: "Green-Software-Foundation",
@@ -61,7 +61,7 @@ export const getPluginsTrimmed = () => {
             outputParams: [7, 9, 11, 1],
         },
         {
-            id: 5,
+            id: 16,
             name: "sci-m",
             domain: "standard",
             owner: "Green-Software-Foundation",
@@ -73,7 +73,7 @@ export const getPluginsTrimmed = () => {
             outputParams: [27, 8, 25, 30, 10],
         },
         {
-            id: 6,
+            id: 15,
             name: "sci-o",
             domain: "standard",
             owner: "Green-Software-Foundation",
@@ -181,7 +181,7 @@ export const getPluginsTrimmed = () => {
             outputParams: [3, 26, 7],
         },
         {
-            id: 13,
+            id: 14,
             name: "watt-time",
             domain: "unofficial",
             owner: "WattTime",

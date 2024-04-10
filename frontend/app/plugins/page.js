@@ -16,21 +16,23 @@ import Link from "next/link";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 
 export default function Home() {
-    const [search, setSearch] = useState("");
     const masterData = getPlugins();
+    const [search, setSearch] = useState("");
+
     const [data, setData] = useState(masterData);
+    console.log("🚀 ~ Home ~ data:", data);
     const [doSearch, setDoSearch] = useState(false);
 
     useEffect(() => {
         try {
             console.log("ss", search);
-            setData((d) =>
-                masterData.filter((plugin) => {
+            setData((d) => [
+                ...masterData.filter((plugin) => {
                     return new RegExp(search, "i").test(
                         plugin.scope + " " + plugin.name
                     );
-                })
-            );
+                }),
+            ]);
         } catch (err) {
             console.log(err);
         }
@@ -39,11 +41,7 @@ export default function Home() {
     return (
         <div className="w-full lg:w-[60%] p-5 font-sans">
             <hr className="w-full" />
-            <Search
-                search={search}
-                setSearch={setSearch}
-                setDoSearch={setDoSearch}
-            />
+            <Search search={search} setSearch={setSearch} />
             <Header />
 
             <ul className="mt-5">
