@@ -104,7 +104,7 @@ export const PluginGenError = ({ errors }) => {
 
 export const OutputError = ({ error }) => {
     return (
-        <div className="bg-orange-600 text-white w-fit px-2 font-sans text-sm">
+        <div className="bg-red-600 text-white w-fit px-2 font-sans text-sm">
             {error.type == 3 ? (
                 <span>
                     error {error.errorId}: appropriate plugin{" "}

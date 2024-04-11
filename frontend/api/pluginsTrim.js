@@ -97,6 +97,17 @@ export const getPluginsTrimmed = () => {
             outputParams: [34, 26],
         },
         {
+            id: 17,
+            name: "tdp-finder",
+            domain: "community",
+            owner: "mr-loop-1",
+            scope: "@mrloop",
+            repo: "https://github.com/mr-loop-1/dummy-plugin",
+            description: "TDP finder with extra sauce",
+            inputParams: [34],
+            outputParams: [34, 26],
+        },
+        {
             id: 7,
             name: "azure-importer",
             domain: "unofficial",
@@ -108,6 +119,7 @@ export const getPluginsTrimmed = () => {
             inputParams: [],
             outputParams: [3, 16, 33, 40, 41, 45],
         },
+
         {
             id: 8,
             name: "boavizta-cpu",

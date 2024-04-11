@@ -116,7 +116,7 @@ export default function Home() {
                                                 return (
                                                     <span className="hover:underline font-mono">
                                                         <Link
-                                                            href={`${process.env.NEXT_PUBLIC_SITE_URL}#${inp.id}`}
+                                                            href={`${process.env.NEXT_PUBLIC_SITE_URL}/params#${inp.id}`}
                                                         >
                                                             {inp.name},&nbsp;
                                                         </Link>
