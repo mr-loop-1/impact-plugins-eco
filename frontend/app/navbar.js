@@ -25,18 +25,37 @@ export default function Navbar() {
             {/* <div className="px-5 w-full lg:w-[60%] h-2 overflow-hidden">
                 <img src="bg.jpg" className="w-full h-auto object-cover" />
             </div> */}
-            <nav className="mt-5 ml-5">
-                <Link href="/">
-                    <Image
-                        className="inline"
-                        src={"logo.svg"}
-                        height={50}
-                        width={50}
-                    />
-                    <span className="ml-2 inline font-bold text-2xl align-middle font-sans">
-                        if-ecosystem
+            <nav className="mt-5 ml-5 w-full lg:w-[60%]">
+                <div className="flex">
+                    <div>
+                        <Link href="/">
+                            <Image
+                                className="inline"
+                                src={"logo.svg"}
+                                height={50}
+                                width={50}
+                            />
+                            <span className="ml-2 inline font-bold text-2xl align-middle font-sans flex-col">
+                                if-ecosystem
+                            </span>
+                        </Link>
+                        <small className="ml-14 block">(c) Abdul Samad</small>
+                    </div>
+                    <span className="ml-auto mr-10 mt-2">
+                        <a
+                            href="https://github.com/Green-Software-Foundation/hack/issues/148"
+                            target="_blank"
+                        >
+                            <img
+                                alt="github"
+                                src={"/github.svg"}
+                                className="!mr-2 hover:scale-110"
+                                width="30"
+                                height="30"
+                            />
+                        </a>
                     </span>
-                </Link>
+                </div>
                 <div className="mt-5">
                     <Link
                         className={clsx(
